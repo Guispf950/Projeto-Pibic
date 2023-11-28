@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+import view.CriarAcerteAPalavra;
 import view.FlashCardCriarController;
 
 public class MenuProfessorController implements Initializable {
@@ -167,16 +168,8 @@ public class MenuProfessorController implements Initializable {
  
 	@FXML
 	public void onbttnAcerteAPalavraAction() {
-		bttnAcerteAPalavra.setOnMouseClicked(event -> {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AcerteAPalavraCriar.fxml"));
-		Parent parent;
-		try {
-			parent = loader.load();
-	        Scene scene = new Scene(parent);
-	        Main.getStage().setScene(scene);
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }});
+	 
+		 new CriarAcerteAPalavra(this.lblUser.getText()).setVisible(true);
 	}
 	@FXML
 	public void onBttnFlashCardAction() {

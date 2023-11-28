@@ -1,10 +1,19 @@
 package view;
 
+import java.io.IOException;
+
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+import application.Main;
 import controller.AcertePalavraController;
 import controller.AcertePalavraQuestaoController;
+import controller.MenuProfessorController;
+import controller.QuizCriarController;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 public class CriarAcerteAPalavra extends javax.swing.JFrame {
 
@@ -246,11 +255,27 @@ public class CriarAcerteAPalavra extends javax.swing.JFrame {
        i++;
     }                                        
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {        
-  	  int palavras = Integer.parseInt(lblNumeroDePalavras.getText());
-  	  if(palavras>=10) {
-  		  new TelaDeMenu().setVisible(true);
-  		  tela.dispose();
-  	  } else JOptionPane.showMessageDialog(null, "Preencha com 10 questões");
+    	 int palavras = Integer.parseInt(lblNumeroDePalavras.getText());
+    	    if (palavras >= 10) {
+    	        JOptionPane.showMessageDialog(null, "O codigo do jogo é : " + id_jogo);
+
+    	        // Executa a mudança de cena na thread do JavaFX
+    	        Platform.runLater(() -> {
+    	            try {
+    	                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuProfessorView.fxml"));
+    	                Parent parent = loader.load();            
+    	                
+
+    	                Scene scene = new Scene(parent);
+    	            
+    	                Main.getStage().setScene(scene);
+    	            } catch (IOException e) {
+    	                e.printStackTrace();
+    	            }
+    	        });
+    	    } else {
+    	        JOptionPane.showMessageDialog(null, "Preencha com 10 questões");
+    	    }
     	 	
     }                                        
     /**
