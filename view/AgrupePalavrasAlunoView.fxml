@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1536.0" style="-fx-background-color: #4D1B86;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AgrupeAsPalavrasController">
+   <children>
+      <Label alignment="CENTER" layoutX="382.0" text="AGRUPE AS PALAVRAS" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Black" size="70.0" />
+         </font>
+      </Label>
+      <VBox layoutX="662.0" layoutY="102.0" prefHeight="668.0" prefWidth="1384.0" style="-fx-background-color: #7C2CCC; -fx-border-style: solid; -fx-border-color: #D3B4FF; -fx-border-width: 5; -fx-border-radius: 15; -fx-background-radius: 15;" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="95.0">
+         <children>
+            <AnchorPane prefHeight="671.0" prefWidth="1374.0">
+               <children>
+                  <AnchorPane layoutX="86.0" layoutY="92.0" prefHeight="527.0" prefWidth="342.0" style="-fx-background-color: #A879EC; -fx-background-radius: 10;" />
+                  <Label alignment="CENTER" layoutX="86.0" layoutY="14.0" prefHeight="58.0" prefWidth="342.0" text="Animais" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="40.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="469.0" layoutY="92.0" prefHeight="527.0" prefWidth="342.0" style="-fx-background-color: #A879EC; -fx-background-radius: 10;" AnchorPane.bottomAnchor="40.0" AnchorPane.topAnchor="92.0" />
+                  <Label alignment="CENTER" layoutX="469.0" layoutY="14.0" prefHeight="58.0" prefWidth="342.0" text="Cidades" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="40.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="856.0" layoutY="92.0" prefHeight="465.0" prefWidth="492.0" style="-fx-background-color: #A879EC; -fx-background-radius: 10;">
+                     <children>
+                        <Label fx:id="palavra20" layoutX="275.0" layoutY="394.0" style="-fx-background-color: white; -fx-border-color: black;" text="Barata" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra17" layoutX="237.0" layoutY="327.0" style="-fx-background-color: white; -fx-border-color: black;" text="Paris" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra19" layoutX="115.0" layoutY="394.0" style="-fx-background-color: white; -fx-border-color: black;" text="Peixe" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra16" layoutX="18.0" layoutY="327.0" style="-fx-background-color: white; -fx-border-color: black;" text="Rio de Janeiro" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra18" layoutX="337.0" layoutY="327.0" style="-fx-background-color: white; -fx-border-color: black;" text="Golfinho" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra6" layoutX="337.0" layoutY="81.0" style="-fx-background-color: white; -fx-border-color: black;" text="Brasília" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra8" layoutX="222.0" layoutY="141.0" style="-fx-background-color: white; -fx-border-color: black;" text="Curitiba" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra12" layoutX="337.0" layoutY="202.0" style="-fx-background-color: white; -fx-border-color: black;" text="Salvador" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra13" layoutX="32.0" layoutY="264.0" style="-fx-background-color: white; -fx-border-color: black;" text="Arara" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra14" layoutX="163.0" layoutY="264.0" style="-fx-background-color: white; -fx-border-color: black;" text="São Paulo" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra15" layoutX="337.0" layoutY="264.0" style="-fx-background-color: white; -fx-border-color: black;" text="Fortaleza" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra9" layoutX="359.0" layoutY="141.0" style="-fx-background-color: white; -fx-border-color: black;" text="Rato" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra7" layoutX="32.0" layoutY="141.0" style="-fx-background-color: white; -fx-border-color: black;" text="Pernambuco" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra10" layoutX="32.0" layoutY="202.0" style="-fx-background-color: white; -fx-border-color: black;" text="Pará" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra11" layoutX="189.0" layoutY="202.0" style="-fx-background-color: white; -fx-border-color: black;" text="Leão" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra5" layoutX="189.0" layoutY="81.0" style="-fx-background-color: white; -fx-border-color: black;" text="Girafa" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra3" layoutX="337.0" layoutY="21.0" style="-fx-background-color: white; -fx-border-color: black;" text="Gato" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra4" layoutX="39.0" layoutY="81.0" style="-fx-background-color: white; -fx-border-color: black;" text="Elefante" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra1" layoutX="59.0" layoutY="21.0" style="-fx-background-color: white; -fx-border-color: black;" text="Manaus" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="palavra2" layoutX="196.0" layoutY="15.0" style="-fx-background-color: white; -fx-border-color: black;" text="Cachorro" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label alignment="CENTER" layoutX="856.0" layoutY="23.0" prefHeight="58.0" prefWidth="492.0" text="Palavras" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="40.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="bbtnFinalizar" layoutX="1252.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBttnFinalizar" prefHeight="39.0" prefWidth="108.0" style="-fx-background-color: white;" text="Finalizar" textFill="#350b64">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
