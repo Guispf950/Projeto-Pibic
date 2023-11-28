@@ -53,7 +53,7 @@ public class AcertePalavraQuestaoDAO {
 	}
 
 	public List<AcertePalavraQuestaoVO> consultarQuestoes(String id_jogo) {
-		String sql1 = "SELECT * FROM acerte_palavra_questao WHERE id_AcertePalvra = (?);";
+		String sql1 = "SELECT * FROM acerte_palavra_questao WHERE id_AcertePalavra = (?);";
 		String sql2 = "SELECT * FROM acerte_palavra WHERE id = (?);";
 		PreparedStatement pStatement1 = null;
 		PreparedStatement pStatement2 = null;
@@ -198,9 +198,9 @@ public class AcertePalavraQuestaoDAO {
 
 	public void visualizarQuestaoTelaMenu(String id_quiz, String nomeAluno, Scene tela2) {
 		//String idJogo = id_quiz;
-		String sql1 = "SELECT dica, palavra FROM acerte_palavra_questao WHERE id_AcertePalvra = ?; ";
+		String sql1 = "SELECT dica, palavra FROM acerte_palavra_questao WHERE id_AcertePalavra = ?; ";
 		String sql2 = "SELECT idAutor, nomeAcertePalavra FROM acerte_palavra WHERE id = (?);";
-		String sql3 = "SELECT COUNT(*) AS total FROM  acerte_palavra_questao WHERE id_AcertePalvra = (?);";
+		String sql3 = "SELECT COUNT(*) AS total FROM  acerte_palavra_questao WHERE id_AcertePalavra = (?);";
 		Date aux = new Date();
 		Timestamp tempoInicial = new Timestamp(aux.getTime());
 		 
@@ -306,7 +306,7 @@ public class AcertePalavraQuestaoDAO {
 	
 
 	public boolean verificarResposta(String resposta, String id_AcertePalavra ,int numeroQuestao) {
-		String sql1 = "SELECT palavra FROM acerte_palavra_questao WHERE id_AcertePalvra = ? LIMIT ? OFFSET ?";
+		String sql1 = "SELECT palavra FROM acerte_palavra_questao WHERE id_AcertePalavra = ? LIMIT ? OFFSET ?";
 
 		PreparedStatement pStatement1 = null;
 		ResultSet rs = null;
@@ -318,7 +318,7 @@ public class AcertePalavraQuestaoDAO {
 			pStatement1.setString(1, id_AcertePalavra);
 			pStatement1.setInt(2, 1);
 			pStatement1.setInt(3, numeroQuestao - 1);
-			rs = pStatement1.executeQuery();
+			rs = pStatement1.  executeQuery();
 			if (rs.next()) {
 				String respostaVerdadeira = rs.getString("palavra");
 				System.out.println(respostaVerdadeira);

@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import javafx.scene.Scene;
 import model.dao.FlashCardQuestaoDAO;
 import model.vo.FlashCardQuestaoVO;
+import view.CriarFlashCar;
 import view.FlashCardAluno;
 import view.FlashCardCriar;
 import view.FlashCardCriarController;
@@ -14,7 +15,7 @@ import view.TelaDeMenuAluno;
 
 public class FlashCardQuestaoBO {
 
-	public void adcionarQuestao(String idFlashCard, String frase, int condicao, String explicacao, FlashCardCriarController tela) {
+	public void adcionarQuestao(String idFlashCard, String frase, int condicao, String explicacao, FlashCardCriar tela) {
 		if(!idFlashCard.trim().isEmpty()&& !frase.trim().isEmpty()&& !explicacao.trim().isEmpty()) {
 		FlashCardQuestaoVO FlashCardQuestaoVO = new FlashCardQuestaoVO(idFlashCard, frase, condicao, explicacao);
 		new FlashCardQuestaoDAO().adcionarQuestao(FlashCardQuestaoVO, tela);

@@ -22,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import model.bo.QuizQuestaoBO;
 import model.vo.QuizQuestaoVO;
+import view.TelaAcerteAPalavraAluno;
 import view.TelaDeMenuAluno;
 import view.TelaQuizAlterar;
 import view.TelaQuizAluno;
@@ -639,8 +640,7 @@ public class QuizQuestaoDAO {
 
 			} else {
 
-				// new FlashCardQuestaoController().visualizarQuestaoTelaMenu(id_quiz,
-				// nomeAluno, tela1, tempoInicial);
+				 new TelaAcerteAPalavraAluno(tempoInicial, id_quiz);
 
 			}
 		} catch (SQLException e) {

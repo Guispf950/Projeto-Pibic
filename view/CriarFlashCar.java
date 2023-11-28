@@ -103,10 +103,11 @@ public class CriarFlashCar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>                        
-
+    CriarFlashCar tela = this;
     private void GerarJogojButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                                  
        String nomeFlash = NomeDoJogojTextField1.getText();
        new FlashCardController().criarFlashCard(nomeFlash, autor);
+       tela.dispose();
     }                                                 
 
     /**
@@ -148,5 +149,6 @@ public class CriarFlashCar extends javax.swing.JFrame {
     private javax.swing.JTextField NomeDoJogojTextField1;
     private javax.swing.JLabel imagemjLabel1;
     private javax.swing.JPanel jPanel1;
-    // End of variables declaration                   
+    // End of variables declaration         
+    
 }

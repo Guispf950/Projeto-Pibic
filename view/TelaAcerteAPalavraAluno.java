@@ -18,6 +18,7 @@ import javax.swing.text.DocumentFilter;
 import javax.swing.text.JTextComponent;
 import javax.swing.text.PlainDocument;
 
+import controller.AcerteAPalavraController;
 import controller.AcertePalavraQuestaoController;
 import model.dao.AcertePalavraQuestaoDAO;
 import model.vo.AcertePalavraQuestaoVO;
@@ -168,7 +169,7 @@ public class TelaAcerteAPalavraAluno extends javax.swing.JFrame {
 			          if(acertou) {
 			        	  acertos++;
 			          }
-			             
+			         
 			        }   new AcertePalavraQuestaoController().finalizarAcertePalavra(id_jogo, tela, acertos, tempoInicial);
 			}
 		});
