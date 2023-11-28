@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuProfessorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuProfessorController">
    <children>
       <BorderPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="791.0" prefWidth="1536.0" style="-fx-background-color: #1A1D6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -22,7 +22,7 @@
                   </Label>
                   <AnchorPane layoutX="59.2" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="658.0" prefWidth="1030.0" style="-fx-background-color: #576CD9; -fx-background-radius: 15; -fx-border-width: 5; -fx-border-style: solid; -fx-border-color: DEE5FF; -fx-border-radius: 15;">
                      <children>
-                        <Button fx:id="bttnFlashcards" layoutX="145.0" layoutY="341.0" mnemonicParsing="false" onAction="#onBttnAgrupePalavrasAction" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: DEE5FF; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />
+                        <Button fx:id="bttnFlashcards" layoutX="145.0" layoutY="341.0" mnemonicParsing="false" onAction="#onBttnFlashCardAction" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: DEE5FF; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />
                         <Button fx:id="bttnAgrupePalavras" layoutX="145.0" layoutY="29.0" mnemonicParsing="false" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: DEE5FF; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />
                         <Button fx:id="bttnQuiz" layoutX="548.0" layoutY="29.0" mnemonicParsing="false" onAction="#onBttnQuizAction" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: DEE5FF; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />
                         <Button fx:id="bttnAcerteAPalavra" layoutX="548.0" layoutY="341.0" mnemonicParsing="false" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: DEE5FF; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />

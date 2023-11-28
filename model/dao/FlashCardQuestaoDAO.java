@@ -24,12 +24,13 @@ import javafx.scene.control.Alert.AlertType;
 import model.vo.FlashCardQuestaoVO;
 import view.FlashCardAluno;
 import view.FlashCardCriar;
+import view.FlashCardCriarController;
 import view.TelaDeMenuAluno;
 import view.TelaQuizAlterar;
 
 public class FlashCardQuestaoDAO {
 
-	public void adcionarQuestao(FlashCardQuestaoVO frase, FlashCardCriar tela) {
+	public void adcionarQuestao(FlashCardQuestaoVO frase, FlashCardCriarController tela) {
 		String sql1 = "INSERT INTO flash_card_questao (idFlashCard, frase, condicao, explicacao) VALUES (?, ?, ?, ?);";
 
 		PreparedStatement pStatement1 = null;
@@ -46,10 +47,11 @@ public class FlashCardQuestaoDAO {
 			int linhasAfetadas = pStatement1.executeUpdate();
 			if (linhasAfetadas != 0) {
 				JOptionPane.showMessageDialog(null, "Pergunta Adcionada");
-				tela.getQuestaoProfInserirjEditorPane1().setText("");
-				tela.getBreveExplicacaojEditorPane2().setText("");
-				tela.getFalsojCheckBox1().setSelected(false);
-				tela.getVerdadeirojCheckBox2().setSelected(false);
+				tela.getTxtExplicacao().setText("");
+				tela.getTxtPergunta().setText("");
+				tela.getRbFalso().setSelected(false);
+				tela.getRbVerdadeiro().setSelected(false);
+			
 			}
 
 		} catch (SQLException e) {

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1536.0" style="-fx-background-color: #08165B;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.QuizCriarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1536.0" style="-fx-background-color: #08165B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.QuizCriarController">
    <children>
       <Label alignment="CENTER" layoutX="557.0" text="FLASHCARD" textFill="WHITE">
          <font>
@@ -23,23 +23,23 @@
          <children>
             <AnchorPane prefHeight="90.0" prefWidth="1374.0" style="-fx-background-color: #2B3775; -fx-border-radius: 15px 15px 0px 0px; -fx-background-radius: 15px 15px 0px 0px; -fx-border-color: #DEE5FF; -fx-border-width: 1;">
                <children>
-                  <Button fx:id="bttnCriar" layoutX="45.0" layoutY="20.0" mnemonicParsing="false" onAction="#onBttnCriar" prefHeight="62.0" prefWidth="186.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 10; -fx-border-color: #E4E3FF; -fx-border-radius: 10; -fx-border-width: 3;" text="Criar" textFill="#08165b" AnchorPane.bottomAnchor="20.800000000000004" AnchorPane.topAnchor="19.20000000000001">
+                  <Button fx:id="bttnCriar1" layoutX="45.0" layoutY="20.0" mnemonicParsing="false" onAction="#onBttnCriar" prefHeight="62.0" prefWidth="186.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 10; -fx-border-color: #E4E3FF; -fx-border-radius: 10; -fx-border-width: 3;" text="Criar" textFill="#08165b" AnchorPane.bottomAnchor="20.800000000000004" AnchorPane.topAnchor="19.20000000000001">
                      <font>
                         <Font name="Segoe UI" size="20.0" />
                      </font></Button>
-                  <Button fx:id="bttnConsultar" layoutX="251.0" layoutY="20.0" mnemonicParsing="false" onAction="#onBttnConsultar" prefHeight="62.0" prefWidth="186.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 10; -fx-border-color: E4E3FF; -fx-border-radius: 10; -fx-border-width: 3;" text="Consultar" textFill="#08165b" AnchorPane.bottomAnchor="21.599999999999994" AnchorPane.topAnchor="20.0">
+                  <Button fx:id="bttnConsultar1" layoutX="251.0" layoutY="20.0" mnemonicParsing="false" onAction="#onBttnConsultar" prefHeight="62.0" prefWidth="186.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 10; -fx-border-color: E4E3FF; -fx-border-radius: 10; -fx-border-width: 3;" text="Consultar" textFill="#08165b" AnchorPane.bottomAnchor="21.599999999999994" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font name="Segoe UI" size="20.0" />
                      </font></Button>
-                  <Button fx:id="bttnAlterar" layoutX="457.0" layoutY="20.0" mnemonicParsing="false" onAction="#onBttnAlterar" prefHeight="62.0" prefWidth="186.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 10; -fx-border-color: E4E3FF; -fx-border-radius: 10; -fx-border-width: 3;" text="Alterar" textFill="#08165b" AnchorPane.bottomAnchor="21.599999999999994" AnchorPane.topAnchor="20.0">
+                  <Button fx:id="bttnAlterar1" layoutX="457.0" layoutY="20.0" mnemonicParsing="false" onAction="#onBttnAlterar" prefHeight="62.0" prefWidth="186.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 10; -fx-border-color: E4E3FF; -fx-border-radius: 10; -fx-border-width: 3;" text="Alterar" textFill="#08165b" AnchorPane.bottomAnchor="21.599999999999994" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font name="Segoe UI" size="20.0" />
                      </font></Button>
-                  <Button layoutX="660.0" layoutY="20.0" mnemonicParsing="false" onAction="#onBttnExcluir" prefHeight="62.0" prefWidth="186.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 10; -fx-border-color: E4E3FF; -fx-border-radius: 10; -fx-border-width: 3;" text="Excluir" textFill="#08165b" AnchorPane.bottomAnchor="21.599999999999994" AnchorPane.topAnchor="20.0">
+                  <Button fx:id="bttnExcluir1" layoutX="660.0" layoutY="20.0" mnemonicParsing="false" onAction="#onBttnExcluir" prefHeight="62.0" prefWidth="186.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 10; -fx-border-color: E4E3FF; -fx-border-radius: 10; -fx-border-width: 3;" text="Excluir" textFill="#08165b" AnchorPane.bottomAnchor="21.599999999999994" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font name="Segoe UI" size="20.0" />
                      </font></Button>
-                  <Button fx:id="bttnVoltar" layoutX="1128.0" layoutY="20.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="186.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 10; -fx-border-color: E4E3FF; -fx-border-radius: 10; -fx-border-width: 3;" text="Voltar" textFill="#08165b" AnchorPane.bottomAnchor="21.599999999999994" AnchorPane.topAnchor="20.0">
+                  <Button fx:id="bttnVoltar1" layoutX="1128.0" layoutY="20.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="186.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 10; -fx-border-color: E4E3FF; -fx-border-radius: 10; -fx-border-width: 3;" text="Voltar" textFill="#08165b" AnchorPane.bottomAnchor="21.599999999999994" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font name="Segoe UI" size="20.0" />
                      </font></Button>
@@ -47,7 +47,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="583.0" prefWidth="1374.0">
                <children>
-                  <TextField alignment="CENTER" layoutX="319.0" layoutY="14.0" prefHeight="58.0" prefWidth="735.0" promptText="INSIRA O TÍTULO DO FLASHCARD" style="-fx-background-color: #08165b; -fx-background-radius: 10; -fx-border-color: DEE5FF; -fx-border-radius: 10; -fx-border-width: 2; -fx-prompt-text-fill: DEE5FF; -fx-text-fill: white;">
+                  <TextField fx:id="txtTituloQuiz" alignment="CENTER" layoutX="319.0" layoutY="14.0" prefHeight="58.0" prefWidth="735.0" promptText="INSIRA O TÍTULO DO FLASHCARD" style="-fx-background-color: #08165b; -fx-background-radius: 10; -fx-border-color: DEE5FF; -fx-border-radius: 10; -fx-border-width: 2; -fx-prompt-text-fill: DEE5FF; -fx-text-fill: white;">
                      <font>
                         <Font name="Monospaced Bold" size="20.0" />
                      </font>
@@ -71,8 +71,8 @@
                               <Font name="Segoe UI Black" size="30.0" />
                            </font>
                         </Label>
-                        <TextArea layoutX="45.0" layoutY="74.0" prefHeight="316.0" prefWidth="618.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
-                        <TextArea layoutX="695.0" layoutY="70.0" prefHeight="316.0" prefWidth="598.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+                        <TextArea fx:id="txtPergunta" layoutX="45.0" layoutY="74.0" prefHeight="316.0" prefWidth="618.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+                        <TextArea fx:id="txtExplicacao" layoutX="695.0" layoutY="70.0" prefHeight="316.0" prefWidth="598.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
                         <Label layoutX="695.0" layoutY="21.0" text="Explicação" textFill="#08165b">
                            <font>
                               <Font name="Segoe UI Black" size="30.0" />
@@ -93,7 +93,7 @@
                   <Button layoutX="1210.0" layoutY="106.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 70; -fx-background-color: #576CD9; -fx-border-style: solid; -fx-border-color: #08165B; -fx-border-radius: 70; -fx-border-width: 2;" />
                   <Button layoutX="1149.0" layoutY="106.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 70; -fx-background-color: #576CD9; -fx-border-style: solid; -fx-border-color: #08165B; -fx-border-radius: 70; -fx-border-width: 2;" />
                   <Button layoutX="1269.0" layoutY="106.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 70; -fx-background-color: #576CD9; -fx-border-style: solid; -fx-border-color: #08165B; -fx-border-radius: 70; -fx-border-width: 2;" />
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1220.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="bttnFinalizarQuiz" fitHeight="30.0" fitWidth="30.0" layoutX="1220.0" layoutY="116.0" onMouseClicked="#onbttnFinalizarQuiz" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../imagens/check.png" />
                      </image>
@@ -103,7 +103,7 @@
                         <Image url="@../../imagens/x.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1159.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="bttnAdicionarQuestao" fitHeight="30.0" fitWidth="30.0" layoutX="1159.0" layoutY="117.0" onMouseClicked="#onBttnAdcionarQuestao" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../imagens/arrow-right.png" />
                      </image>

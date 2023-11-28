@@ -9,11 +9,13 @@ import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.image.ImageView;
-import javafx.util.Duration;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+import view.FlashCardCriarController;
 
 public class MenuProfessorController implements Initializable {
 
@@ -39,6 +41,9 @@ public class MenuProfessorController implements Initializable {
 	private Button bttnAgrupePalavras;
 	@FXML
 	private Button bttnFlashcards;
+	@FXML
+	private Button bttnAcerteAPalavraAction;
+	 
 
 	public Label getLblUser() {
 		return lblUser;
@@ -110,7 +115,19 @@ public class MenuProfessorController implements Initializable {
 			bttnFlashcards.setScaleX(1); // Restaurar a escala horizontal original
 			bttnFlashcards.setScaleY(1); // Restaurar a escala vertical original
 		});
+		bttnFlashcards.setOnMouseClicked(event -> {
+			  FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FlashCardView.fxml"));
+			    Parent parent;
+			    try {
+			        parent = loader.load();
+			        Scene scene = new Scene(parent);
+			        Main.getStage().setScene(scene);
 
+			         
+			    } catch (IOException e) {
+			        e.printStackTrace();
+			    }
+		});
 	}
 
 	@FXML
@@ -147,7 +164,32 @@ public class MenuProfessorController implements Initializable {
 
 		});
 	}
+ 
+	@FXML
+	public void onbttnAcerteAPalavraAction() {
+	    try {
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AcerteAPalavraCriar.fxml"));
+	        Parent parent = loader.load();
+	        Scene scene = new Scene(parent);
+	        Main.getStage().setScene(scene);
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+	@FXML
+	public void onBttnFlashCardAction() {
+	    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FlashcardCriar.fxml"));
+	    Parent parent;
+	    try {
+	        parent = loader.load();
+	        Scene scene = new Scene(parent);
+	        Main.getStage().setScene(scene);
 
+	         
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
 	@FXML
 	public void onBttnSair() {
 
