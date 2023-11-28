@@ -167,14 +167,16 @@ public class MenuProfessorController implements Initializable {
  
 	@FXML
 	public void onbttnAcerteAPalavraAction() {
-	    try {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AcerteAPalavraCriar.fxml"));
-	        Parent parent = loader.load();
+		bttnAcerteAPalavra.setOnMouseClicked(event -> {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AcerteAPalavraCriar.fxml"));
+		Parent parent;
+		try {
+			parent = loader.load();
 	        Scene scene = new Scene(parent);
 	        Main.getStage().setScene(scene);
 	    } catch (IOException e) {
 	        e.printStackTrace();
-	    }
+	    }});
 	}
 	@FXML
 	public void onBttnFlashCardAction() {
