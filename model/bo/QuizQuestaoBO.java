@@ -118,10 +118,7 @@ public class QuizQuestaoBO {
 
 	public boolean verificarResposta(String resposta, String id_jogo, int acertos, int numeroQuestao) {
 		boolean acertou = false;
-		if (resposta != null) {
-			acertou = new QuizQuestaoDAO().verificarResposta(resposta, id_jogo, acertos, numeroQuestao);
-		} else
-			JOptionPane.showMessageDialog(null, "Marque uma das alternativas");
+		acertou = new QuizQuestaoDAO().verificarResposta(resposta, id_jogo, acertos, numeroQuestao);
 		return acertou;
 
 	}

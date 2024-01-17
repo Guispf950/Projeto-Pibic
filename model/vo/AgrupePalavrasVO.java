@@ -3,12 +3,12 @@ package model.vo;
 import java.sql.Timestamp;
 
 public class AgrupePalavrasVO {
-	
- 	private String id;
- 	private int idAutor;
- 	private String nomeAgrupePalavra;
- 	private Timestamp horaCriacao;
- 	
+
+	private String id;
+	private int idAutor;
+	private String nomeAgrupePalavra;
+	private Timestamp horaCriacao;
+
 	public AgrupePalavrasVO(String id, int idAutor, String nomeAgrupePalavra, Timestamp horaCriacao) {
 		this.id = id;
 		this.idAutor = idAutor;
@@ -21,7 +21,9 @@ public class AgrupePalavrasVO {
 		this.nomeAgrupePalavra = nomeAgrupePalavra;
 		this.horaCriacao = horaCriacao;
 	}
-	public AgrupePalavrasVO( ) {		}
+
+	public AgrupePalavrasVO() {
+	}
 
 	public String getId() {
 		return id;
@@ -54,7 +56,4 @@ public class AgrupePalavrasVO {
 	public void setHoraCriacao(Timestamp horaCriacao) {
 		this.horaCriacao = horaCriacao;
 	}
-	
-	
-	
- 	 
+}
