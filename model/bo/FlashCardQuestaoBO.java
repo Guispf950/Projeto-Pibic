@@ -4,14 +4,14 @@ import java.sql.Timestamp;
 
 import javax.swing.JOptionPane;
 
+import controller.FlashCardCriarController;
 import javafx.scene.Scene;
 import model.dao.FlashCardQuestaoDAO;
 import model.vo.FlashCardQuestaoVO;
 import view.CriarFlashCar;
 import view.FlashCardAluno;
 import view.FlashCardCriar;
-import view.FlashCardCriarController;
-import view.TelaDeMenuAluno;
+ 
 
 public class FlashCardQuestaoBO {
 

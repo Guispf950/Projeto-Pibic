@@ -10,7 +10,7 @@ public class Conexao {
 		Connection conn = null;
 		
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/LearnQuest", "rootRemoto", "root");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pibic", "root", "root");
 
 		}catch (SQLException e) { 
 			e.printStackTrace();

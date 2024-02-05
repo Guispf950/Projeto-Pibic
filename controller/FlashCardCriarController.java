@@ -1,4 +1,4 @@
-package view;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -7,12 +7,6 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import application.Main;
-import controller.MenuProfessorController;
-import controller.QuizAlterarController;
-import controller.QuizAlterarQuestaoController;
-import controller.QuizConsultarController;
-import controller.QuizCriarController;
-import controller.QuizExcluirController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

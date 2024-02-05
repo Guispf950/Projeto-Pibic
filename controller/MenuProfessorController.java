@@ -17,7 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import view.CriarAcerteAPalavra;
 import view.CriarFlashCar;
-import view.FlashCardCriarController;
 
 public class MenuProfessorController implements Initializable {
 

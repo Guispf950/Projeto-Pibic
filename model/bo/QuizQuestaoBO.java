@@ -1,18 +1,18 @@
 package model.bo;
 
-import java.sql.Timestamp;
+import java.sql.Timestamp; 
 
 import javax.swing.JOptionPane;
 
 import controller.QuizAlterarQuestaoController;
 import controller.QuizCriarController;
 import javafx.scene.Scene;
-import model.dao.AlunoDAO;
+import model.dao.UsuarioDAO;
 import model.dao.PontuacaoDAO;
 import model.dao.QuizQuestaoDAO;
 import model.vo.QuizQuestaoVO;
 import view.TelaQuizAlterar;
-import view.TelaQuizAluno;
+ 
 
 public class QuizQuestaoBO {
 
@@ -107,7 +107,7 @@ public class QuizQuestaoBO {
 	}
 
 	public void visualizarQuestaoTelaMenu(String id_jogo, String nomeAluno, Scene tela) {
-		int idAluno = new AlunoDAO().pegarIdComNomeUser(nomeAluno);
+		int idAluno = new UsuarioDAO().pegarIdComNomeUser(nomeAluno);
 		int vezesJogadas = new PontuacaoDAO().vezesJogadas(idAluno, id_jogo);
 		if (vezesJogadas < 3) {
 			new QuizQuestaoDAO().visualizarQuestaoTelaMenu(id_jogo, nomeAluno, tela);

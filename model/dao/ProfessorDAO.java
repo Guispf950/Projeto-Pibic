@@ -8,7 +8,7 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import model.vo.AlunoVO;
+import model.vo.UsuarioVO;
 import model.vo.ProfessorVO;
 import view.TelaCadastro;
 import view.TelaRestaurarSenha;

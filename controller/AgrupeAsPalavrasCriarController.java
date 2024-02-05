@@ -1,4 +1,4 @@
-package view;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -8,7 +8,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import application.Main;
-import controller.MenuProfessorController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

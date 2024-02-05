@@ -29,12 +29,12 @@ public class LoginDAO {
 		PreparedStatement pStatement4 = null;
 		ResultSet rs1 = null;
 		ResultSet rs2 = null;
-		ResultSet rs3 = null; 
+		ResultSet rs3 = null;
 		ResultSet rs4 = null;
-	
+
 		Connection conn = null;
 		boolean professor_user = false;
-		boolean professor_email = false; 
+		boolean professor_email = false;
 		boolean aluno_user = false;
 		boolean aluno_email = false;
 		String usuario = null;
@@ -65,7 +65,7 @@ public class LoginDAO {
 			pStatement3.setString(2, senha);
 			rs3 = pStatement3.executeQuery();
 			if (rs3.next()) {
-				aluno_email = true; 
+				aluno_email = true;
 				usuario = rs3.getString("usuario");
 
 			}
@@ -80,43 +80,39 @@ public class LoginDAO {
 
 			}
 
-
-
 			if (aluno_user || aluno_email) {
-				 
+
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuAlunoView.fxml"));
 				Parent parent;
 				try {
-					 
-					 parent = loader.load();
-					 MenuAlunoController tela1 = loader.getController();
-					 tela1.lblUser.setText(usuario);
-					 Scene scene = new Scene(parent);
-					 
-					 Main.getStage().setScene(scene);
-				    
+
+					parent = loader.load();
+					MenuAlunoController tela1 = loader.getController();
+					tela1.lblUser.setText(usuario);
+					Scene scene = new Scene(parent);
+
+					Main.getStage().setScene(scene);
+
 				} catch (IOException e) {
-				    
-				    e.printStackTrace();
+
+					e.printStackTrace();
 				}
-				
+
 			} else if (professor_user || professor_email) {
-				
+
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuProfessorView.fxml"));
 				Parent parent;
 				try {
-				    parent = loader.load();
-				    MenuProfessorController tela1 = loader.getController();
-				    tela1.getLblUser().setText(usuario);
-				    Scene scene = new Scene(parent);
-				    Main.getStage().setScene(scene);
+					parent = loader.load();
+					MenuProfessorController tela1 = loader.getController();
+					tela1.getLblUser().setText(usuario);
+					Scene scene = new Scene(parent);
+					Main.getStage().setScene(scene);
 				} catch (IOException e) {
-				    
-				    e.printStackTrace();
+
+					e.printStackTrace();
 				}
-				
-				
-				
+
 			} else
 				JOptionPane.showMessageDialog(null, "Dados Incorretos");
 		} catch (SQLException e) {
@@ -124,5 +120,30 @@ public class LoginDAO {
 		}
 	}
 
-	
+	public boolean fazerLogin(String nome_user, String senha) {
+		String sql1 = "SELECT usuario FROM usuario WHERE usuario = (?) && senha = (?);";
+		
+		PreparedStatement pStatement1 = null;
+		ResultSet rs1 = null;
+		Connection conn = null;
+		 
+
+		String usuario = null;
+		try {
+			conn = new Conexao().getConnection();
+			pStatement1 = conn.prepareStatement(sql1);
+			pStatement1.setString(1, nome_user);
+			pStatement1.setString(2, senha);
+			rs1 = pStatement1.executeQuery();
+			if (rs1.next()) {
+				 
+				 return true;
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }

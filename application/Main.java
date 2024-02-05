@@ -30,7 +30,7 @@ public class Main extends Application {
 			mainScene = new Scene(parent);
 			stage.setScene(mainScene);
 			stage.setMaximized(true);
-			stage.show();
+			stage.show(); 
 			setStage(stage);
 			
 		} catch(Exception e) {

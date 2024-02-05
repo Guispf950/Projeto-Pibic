@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane1" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginController">
+<AnchorPane fx:id="anchorPane1" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <BorderPane fx:id="borderPane" prefHeight="864.0" prefWidth="1536.0" style="-fx-background-color: '4D1B86'; -fx-border-color: 'D3B4FF';" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="borderPane" prefHeight="864.0" prefWidth="1536.0" style="-fx-background-color: #2A45AD; -fx-border-color: 'D3B4FF';" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <AnchorPane fx:id="anchorPane2" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="680.0" prefWidth="580.0" style="-fx-background-color: '7C2CCC'; -fx-background-radius: 15; -fx-border-width: 5; -fx-border-style: solid; -fx-border-color: #D3B4FF; -fx-border-radius: 15;" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="anchorPane2" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="680.0" prefWidth="580.0" style="-fx-background-color: #515CE0; -fx-background-radius: 15; -fx-border-width: 5; -fx-border-style: solid; -fx-border-color: #ffbc11; -fx-border-radius: 15;" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets />
                </BorderPane.margin>
@@ -90,7 +90,7 @@
                         <Font name="Segoe UI" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="323.0" layoutY="550.0" prefHeight="36.0" prefWidth="105.0" text="Cadastre aqui" textFill="#ffbc11">
+                  <Label fx:id="lblCadastrar" layoutX="323.0" layoutY="550.0" onMouseClicked="#onLblCadastrarAction" prefHeight="36.0" prefWidth="105.0" text="Cadastre aqui" textFill="#ffbc11">
                      <font>
                         <Font name="Segoe UI" size="16.0" />
                      </font>

@@ -10,10 +10,10 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import model.dao.AlunoDAO;
+import model.dao.UsuarioDAO;
 import model.dao.Conexao;
 import model.dao.ProfessorDAO;
-import model.vo.AlunoVO;
+import model.vo.UsuarioVO;
 import model.vo.ProfessorVO;
 import view.TelaCadastro;
 import view.TelaRestaurarSenha;

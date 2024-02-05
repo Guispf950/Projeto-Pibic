@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 
 import application.Main;
 import controller.FlashCardController1;
+import controller.FlashCardCriarController;
 import controller.PontuacaoController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,7 +26,6 @@ import model.vo.FlashCardQuestaoVO;
 import view.CriarFlashCar;
 import view.FlashCardAluno;
 import view.FlashCardCriar;
-import view.FlashCardCriarController;
 import view.TelaDeMenuAluno;
 import view.TelaQuizAlterar;
 

@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 import controller.AcertePalavraController;
 import model.dao.AcertePalavraQuestaoDAO;
-import model.dao.AlunoDAO;
+import model.dao.UsuarioDAO;
 import model.dao.PontuacaoDAO;
 import model.dao.ProfessorDAO;
 import model.dao.QuizDAO;

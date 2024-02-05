@@ -7,7 +7,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import controller.PontuacaoController;
-import model.dao.AlunoDAO;
+import model.dao.UsuarioDAO;
 import model.dao.PontuacaoDAO;
 import model.vo.PontuacaoVO;
 
@@ -17,7 +17,7 @@ public class PontuacaoBO {
 			Timestamp tempoFinal) {
 		
 		if (!id_jogo.trim().isEmpty() && !nomeAluno.trim().isEmpty() && tempoInicial != null && tempoFinal != null) {
-			int idAluno = new AlunoDAO().pegarIdComNomeUser(nomeAluno);
+			int idAluno = new UsuarioDAO().pegarIdComNomeUser(nomeAluno);
 			int vezesJogadas = new PontuacaoDAO().vezesJogadas(idAluno, id_jogo) + 1;
 			PontuacaoVO pontuacao = new PontuacaoVO(id_jogo, idAluno, acertos, tempoInicial, tempoFinal, vezesJogadas);
 			new PontuacaoDAO().salvarPontuacao(pontuacao);

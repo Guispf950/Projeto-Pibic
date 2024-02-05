@@ -1,6 +1,6 @@
 package model.dao;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +13,7 @@ import model.vo.FlashCardVO;
 import model.vo.QuizQuestaoVO;
 import model.vo.QuizVO;
 import view.FlashCardCriar;
-import view.TelaQuiz;
+ 
 
 public class FlashCardDAO {
 

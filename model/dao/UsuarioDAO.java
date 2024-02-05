@@ -1,6 +1,6 @@
 package model.dao;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,71 +8,47 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import model.vo.AlunoVO;
+import model.vo.UsuarioVO;
 import view.TelaCadastro;
 import view.TelaRestaurarSenha;
 
-public class AlunoDAO {
-	public void cadastrarAluno(AlunoVO aluno, TelaCadastro tela) {
-
-		String sql1 = "INSERT INTO aluno (nome, sobrenome, email, usuario, senha, dataNasc, nomeCachorro, comidaFav) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-		String sql2 = "SELECT id FROM aluno WHERE usuario = (?);";
-		String sql3 = "SELECT id FROM aluno WHERE email = (?);";
-		String sql4 = "SELECT id FROM professor WHERE usuario = (?);";
-		String sql5 = "SELECT id FROM professor WHERE email = (?);";
+public class UsuarioDAO {
+	public boolean cadastrarAluno(UsuarioVO usuario) {
+		
+		String sql1 = "INSERT INTO usuario (nome, senha, dataNasc, usuario, dicaSenha, sexo) VALUES (?, ?, ?, ?, ?, ?)";
+		String sql2 = "SELECT id FROM usuario WHERE usuario = (?);";
 		PreparedStatement pStatement1 = null;
 		PreparedStatement pStatement2 = null;
-		PreparedStatement pStatement3 = null;
-		PreparedStatement pStatement4 = null;
-		PreparedStatement pStatement5 = null;
+		 
 		Connection conn = null;
 		try {
 
-			conn = new Conexao().getConnection(); 
+			conn = new Conexao().getConnection();
 
 			pStatement2 = conn.prepareStatement(sql2);
-			pStatement2.setString(1, aluno.getUser());
+			pStatement2.setString(1, usuario.getUser());
 			boolean nome_user_aluno = pStatement2.executeQuery().next(); // verifica se nome de usuario na tabela aluno
 																			// já existe
 
-			pStatement3 = conn.prepareStatement(sql3);
-			pStatement3.setString(1, aluno.getEmail());
-			boolean email_user_aluno = pStatement3.executeQuery().next();// verifica se o email na tabela aluno já foi
-																			// cadastrado
+			if (!nome_user_aluno) {
 
-			pStatement4 = conn.prepareStatement(sql4);
-			pStatement4.setString(1, aluno.getUser());
-			boolean nome_user_professor = pStatement4.executeQuery().next(); // verifica se nome de usuario na tabela
-																				// professor já existe
-
-			pStatement5 = conn.prepareStatement(sql5);
-			pStatement5.setString(1, aluno.getEmail());
-			boolean email_user_professor = pStatement5.executeQuery().next(); // verifica se o email na tabela professor
-																				// já foi cadastrado
-
-			if (!nome_user_aluno && !nome_user_professor) {
-				if (!email_user_aluno && !email_user_professor) {
-					pStatement1 = conn.prepareStatement(sql1);
-					pStatement1.setString(1, aluno.getNome());
-					pStatement1.setString(2, aluno.getSobrenome());
-					pStatement1.setString(3, aluno.getEmail());
-					pStatement1.setString(4, aluno.getUser());
-					pStatement1.setString(5, aluno.getSenha());
-					java.util.Date utilDate = aluno.getDatanasc();
-					java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-					pStatement1.setDate(6, sqlDate);
-					pStatement1.setString(7, aluno.getNomeCachorro());
-					pStatement1.setString(8, aluno.getComidaFav());
-					pStatement1.execute();
-					JOptionPane.showMessageDialog(null, "Usuario Cadastrado !");
-					tela.dispose();
-				} else
-					JOptionPane.showMessageDialog(null, "Email já esta cadastrado", "Erro no Cadastro",
-							JOptionPane.ERROR_MESSAGE);
+				pStatement1 = conn.prepareStatement(sql1);
+				pStatement1.setString(1, usuario.getNome());
+				pStatement1.setString(2, usuario.getSenha());
+				java.util.Date utilDate = usuario.getDatanasc();
+				java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+				pStatement1.setDate(3, sqlDate);
+				pStatement1.setString(4, usuario.getUser());
+				pStatement1.setString(5, usuario.getDicaSenha());
+				pStatement1.setString(6,String.valueOf(usuario.getSexo()));
+				pStatement1.execute();
+				JOptionPane.showMessageDialog(null, "Usuario Cadastrado !");
+				return true;
 
 			} else
 				JOptionPane.showMessageDialog(null, "Esse nome de usuario já está cadastrado ", "Erro no Cadastro",
 						JOptionPane.ERROR_MESSAGE);
+			return false;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -95,6 +71,8 @@ public class AlunoDAO {
 				System.out.println("Erro ao fechar conexao");
 			}
 		}
+		return false;
+ 
 
 	}
 
@@ -189,10 +167,9 @@ public class AlunoDAO {
 			return 0;
 		}
 	}
-	
-	public AlunoVO pegarDadosAlunoComId(int id) {
-		
-		 
+
+	/*public UsuarioVO pegarDadosAlunoComId(int id) {
+
 		String sql1 = "SELECT * FROM aluno WHERE id = (?);";
 
 		PreparedStatement pStatement1 = null;
@@ -214,17 +191,17 @@ public class AlunoDAO {
 				Date dataNasc = rs1.getDate("dataNasc");
 				String nomeCachorro = rs1.getString("nomeCachorro");
 				String comidaFav = rs1.getString("comidaFav");
-				AlunoVO aluno = new AlunoVO(nome, sobrenome, email, nomeUser, senha, dataNasc, nomeCachorro, comidaFav);
+				UsuarioVO aluno = new UsuarioVO(nome, sobrenome, email, nomeUser, senha, dataNasc, nomeCachorro,
+						comidaFav);
 				return aluno;
 
 			}
-			 
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 
-		 
 		}
 		return null;
-		
-	}
+
+	} */
 }
