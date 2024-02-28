@@ -229,12 +229,12 @@ public class FlashCardQuestaoDAO {
 		}
 	}
 
-	public void visualizarQuestaoTelaMenu(String idFlashCard, String nomeAluno, Scene tela2, Timestamp tempoInicial2) {
+	public void visualizarQuestaoTelaMenu(String idFlashCard, String nomeAluno, Scene tela, Timestamp tempoInicial) {
 		String sql1 = "SELECT * FROM flash_card_questao WHERE idFlashCard = ?; ";
 		String sql2 = "SELECT nomeFlashCard FROM flash_card WHERE id = (?);";
 		String sql3 = "SELECT COUNT(*) AS total FROM flash_card_questao WHERE idFlashCard = (?);";
 		Date aux = new Date();
-		Timestamp tempoInicial = new Timestamp(aux.getTime());
+		 
 
 		PreparedStatement pStatement1 = null;
 		PreparedStatement pStatement2 = null;
@@ -297,7 +297,7 @@ public class FlashCardQuestaoDAO {
 
 			} else {
 
-				new AcertePalavraQuestaoDAO().visualizarQuestaoTelaMenu(idFlashCard, nomeAluno, tela2);
+				new AcertePalavraQuestaoDAO().visualizarQuestaoTelaMenu(idFlashCard, nomeAluno, tela);
 			}
 
 		} catch (SQLException e) {

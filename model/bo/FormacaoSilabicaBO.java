@@ -6,7 +6,7 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 import model.dao.FormacaoSilabDAO;
-import model.dao.ProfessorDAO;
+import model.dao.AdministradorDAO;
 import model.dao.QuizDAO;
 import model.vo.FormacaoSilabVO;
 import model.vo.QuizVO;
@@ -17,7 +17,7 @@ public class FormacaoSilabicaBO {
 
 		
 		Timestamp horaCriacao = new Timestamp(System.currentTimeMillis());
-		int idAutor = new ProfessorDAO().pegarIdComNomeUser(autor);
+		int idAutor = new AdministradorDAO().pegarIdComNomeUser(autor);
 		FormacaoSilabVO formSil = new FormacaoSilabVO(idAutor, nomeFormSil, horaCriacao);
 		new FormacaoSilabDAO().criarFormacaoSilab(formSil);
 		

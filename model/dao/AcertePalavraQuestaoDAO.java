@@ -1,6 +1,6 @@
 package model.dao;
 
-import java.io.IOException;
+import java.io.IOException; 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,9 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import model.vo.AcertePalavraQuestaoVO;
 import model.vo.ProfessorVO;
-import view.CriarAcerteAPalavra;
-import view.TelaAcerteAPalavraAluno;
-import view.TelaDeMenuAluno;
+ 
 import view.TelaQuizAlterar;
 
 public class AcertePalavraQuestaoDAO {
@@ -229,7 +227,7 @@ public class AcertePalavraQuestaoDAO {
 				if (rs2.next()) {
 					String nomeQuiz = rs2.getString("nomeAcertePalavra");
 					int idAutor = rs2.getInt("idAutor");
-					ProfessorVO professor = new ProfessorDAO().pegarDadosProfessorComId(idAutor);
+					 
 					rs3 = pStatement3.executeQuery();
 
 					if (rs3.next()) {
@@ -307,7 +305,7 @@ public class AcertePalavraQuestaoDAO {
 
 	public boolean verificarResposta(String resposta, String id_AcertePalavra ,int numeroQuestao) {
 		String sql1 = "SELECT palavra FROM acerte_palavra_questao WHERE id_AcertePalavra = ? LIMIT ? OFFSET ?";
-
+		 
 		PreparedStatement pStatement1 = null;
 		ResultSet rs = null;
 		Connection conn = null;
@@ -317,12 +315,11 @@ public class AcertePalavraQuestaoDAO {
 			pStatement1 = conn.prepareStatement(sql1);
 			pStatement1.setString(1, id_AcertePalavra);
 			pStatement1.setInt(2, 1);
-			pStatement1.setInt(3, numeroQuestao - 1);
+			pStatement1.setInt(3, numeroQuestao);
 			rs = pStatement1.  executeQuery();
 			if (rs.next()) {
-				String respostaVerdadeira = rs.getString("palavra");
-				System.out.println(respostaVerdadeira);
-				if (resposta.equals(respostaVerdadeira)) {
+				String respostaVerdadeira = rs.getString("palavra");				
+				if (resposta.equals(respostaVerdadeira.toUpperCase())) {
 					acertou = true;
 
 				}

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1536.0" style="-fx-background-color: #08165B;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.QuizCriarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1536.0" style="-fx-background-color: #08165B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.QuizCriarController">
    <children>
       <Label alignment="CENTER" layoutX="680.0" text="QUIZ" textFill="WHITE">
          <font>
@@ -124,25 +124,25 @@
                   <Button layoutX="1269.0" layoutY="106.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 70; -fx-background-color: #576CD9; -fx-border-style: solid; -fx-border-color: #08165B; -fx-border-radius: 70; -fx-border-width: 2;" />
                   <ImageView fx:id="bttnFinalizarQuiz" fitHeight="30.0" fitWidth="30.0" layoutX="1279.0" layoutY="117.0" onMouseClicked="#onbttnFinalizarQuiz" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../imagens/check.png" />
+                        <Image url="@../imagem/check.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="bttnVoltarQuestao" fitHeight="30.0" fitWidth="30.0" layoutX="1159.0" layoutY="117.0" onMouseClicked="#onbttnVoltarQuestao" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                      <image>
-                        <Image url="@../../imagens/arrow-right.png" />
+                        <Image url="@../imagem/arrow-right.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="bttnAdicionarQuestao" fitHeight="30.0" fitWidth="30.0" layoutX="1220.0" layoutY="117.0" onMouseClicked="#onBttnAdcionarQuestao" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../imagens/arrow-right.png" />
+                        <Image url="@../imagem/arrow-right.png" />
                      </image>
                   </ImageView>
                </children></AnchorPane>
          </children>
       </VBox>
-      <ImageView fitHeight="73.0" fitWidth="279.0" layoutX="76.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="58.0" fitWidth="203.0" layoutX="112.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imagens/Group%20113.png" />
+            <Image url="@../imagem/LogoBurnoutApp.png" />
          </image>
       </ImageView>
    </children>

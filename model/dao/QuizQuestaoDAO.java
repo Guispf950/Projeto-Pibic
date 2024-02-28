@@ -20,6 +20,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import model.bo.FlashCardQuestaoBO;
 import model.bo.QuizQuestaoBO;
 import model.vo.QuizQuestaoVO;
 import view.TelaAcerteAPalavraAluno;
@@ -246,6 +247,31 @@ public class QuizQuestaoDAO {
 		}
 	}
 
+	public int totalDeQuestoesQuiz(String id) {
+		int totalQuestoes = 0;
+		String sql1 = "SELECT COUNT(*) AS total FROM quiz_questao WHERE idJogo = (?);";
+		PreparedStatement pStatement1 = null;
+		ResultSet rs = null;
+		Connection conn = null;
+		try {
+			conn = new Conexao().getConnection();
+			pStatement1 = conn.prepareStatement(sql1);
+			pStatement1.setString(1, id);
+			rs = pStatement1.executeQuery();
+
+			if (rs.next()) {
+
+				totalQuestoes = rs.getInt("total");
+
+			} else
+				JOptionPane.showMessageDialog(null, "Digite um ID de quiz válido");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return totalQuestoes;
+
+	}
 	public int pegarUltimoIdQuestao() {
 		int ultimoId = 0;
 		String sql1 = "SELECT id FROM quiz_questao ORDER BY id DESC LIMIT 1";
@@ -337,13 +363,13 @@ public class QuizQuestaoDAO {
 		}
 	}
 
-	public void visualizarQuestaoTelaMenu(String id_quiz, String nomeAluno, Scene tela1) {
-		String sql1 = "SELECT pergunta, alternativaA, alternativaB, alternativaC, alternativaD FROM quiz_questao WHERE id_quiz = ?; ";
+	public void visualizarQuestaoTelaMenu(String id_quiz, String nomeAluno, Scene tela) {
+		String sql1 = "SELECT pergunta, alternativaA, alternativaB, alternativaC, alternativaD FROM quiz_questao WHERE id_quiz = (?); ";
 		String sql2 = "SELECT nomeQuiz FROM quiz WHERE id = (?);";
 		String sql3 = "SELECT COUNT(*) AS total FROM quiz_questao WHERE id_quiz = (?);";
 		Date aux = new Date();
 		Timestamp tempoInicial = new Timestamp(aux.getTime());
-
+		 
 		PreparedStatement pStatement1 = null;
 		PreparedStatement pStatement2 = null;
 		PreparedStatement pStatement3 = null;
@@ -369,14 +395,17 @@ public class QuizQuestaoDAO {
 				String alternativaC = rs1.getString("alternativaC");
 				String alternativaD = rs1.getString("alternativaD");
 				rs2 = pStatement2.executeQuery();
+				System.out.println("ID JOGO:"+id_quiz);
+				
 				if (rs2.next()) {
 					String nomeQuiz = rs2.getString("nomeQuiz");
 					rs3 = pStatement3.executeQuery();
+					System.out.println("to aquiiii 1");
 
 					if (rs3.next()) {
-
+						System.out.println("to aquiiii 2");
 						try {
-							
+							System.out.println("to aqui 3");
 							FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/QuizView.fxml"));
 							Parent parent = loader.load();
 							QuizViewController quizAlterarQuestao = loader.getController();
@@ -409,11 +438,12 @@ public class QuizQuestaoDAO {
 						
 
 					}
-				}
+				} else System.out.println("to aqui 5");
 
 			} else {
+				 
 
-				new FlashCardQuestaoController().visualizarQuestaoTelaMenu(id_quiz, nomeAluno, tela1, tempoInicial);
+				new FlashCardQuestaoDAO().visualizarQuestaoTelaMenu(id_quiz, nomeAluno, tela, tempoInicial);
 
 			}
 		} catch (SQLException e) {

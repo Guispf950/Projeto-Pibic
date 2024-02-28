@@ -13,7 +13,7 @@ import model.vo.ProfessorVO;
 import view.TelaCadastro;
 import view.TelaRestaurarSenha;
 
-public class ProfessorDAO {
+public class AdministradorDAO {
 
 	public void cadastrarProfessor(ProfessorVO professor, TelaCadastro tela) {
 
@@ -100,7 +100,7 @@ public class ProfessorDAO {
 
 	}
 
-	public void restaurarSenhaAluno(String nome, String sobrenome, String email, String senha, Date dataNasc,
+	public void restaurarSenhaAdministrador(String nome, String sobrenome, String email, String senha, Date dataNasc,
 			String nomeCachorro, String comidaFav, TelaRestaurarSenha tela) {
 		String sql1 = "SELECT email FROM professor WHERE nome = ? AND sobrenome = ? AND dataNasc = ? AND comidaFav = ? AND email = ? ;";
 		String sql2 = "UPDATE professor SET senha = (?) WHERE email = (?);";
@@ -166,7 +166,7 @@ public class ProfessorDAO {
 	public int pegarIdComNomeUser(String user) {
 		int idAutor = 0;
 		System.out.println("NOME USUARIO: "+user);
-		String sql1 = "SELECT id FROM professor WHERE usuario = (?);";
+		String sql1 = "SELECT id FROM administrador WHERE usuario = (?);";
 
 		PreparedStatement pStatement1 = null;
 		ResultSet rs1 = null;
@@ -190,10 +190,10 @@ public class ProfessorDAO {
 		}
 	}
 	
-	public ProfessorVO pegarDadosProfessorComId(int id) {
+	public ProfessorVO pegarDadosAdministradorComId(int id) {
 		
 		 
-		String sql1 = "SELECT * FROM professor WHERE id = (?);";
+		String sql1 = "SELECT * FROM administrador WHERE id = (?);";
 
 		PreparedStatement pStatement1 = null;
 		ResultSet rs1 = null;
@@ -206,15 +206,12 @@ public class ProfessorDAO {
 			pStatement1.setInt(1, id);
 			rs1 = pStatement1.executeQuery();
 			if (rs1.next()) {
-				String nome = rs1.getString("nome");
-				String sobrenome = rs1.getString("sobrenome");
-				String email = rs1.getString("email");
+				
+				
 				String nomeUser = rs1.getString("usuario");
 				String senha = rs1.getString("senha");
-				Date dataNasc = rs1.getDate("dataNasc");
-				String nomeCachorro = rs1.getString("nomeCachorro");
-				String comidaFav = rs1.getString("comidaFav");
-				ProfessorVO professor = new ProfessorVO(nome, sobrenome, email, nomeUser, senha, dataNasc, nomeCachorro, comidaFav);
+				String dicaSenha = rs1.getString("dicaSenha");
+				ProfessorVO professor = new ProfessorVO(nomeUser, senha, dicaSenha);
 				return professor;
 
 			}

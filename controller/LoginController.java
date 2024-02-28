@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
 
 import application.Main;
 import javafx.fxml.FXML;
@@ -22,6 +23,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.bo.LoginBO;
+import servicos.Servicos;
 
 public class LoginController implements Initializable {
 
@@ -60,26 +62,18 @@ public class LoginController implements Initializable {
 			senha = txtSenhaVisivel.getText();
 		}
 		senha = txtSenha.getText();
-		Parent login = FXMLLoader.load(getClass().getResource("/view/LoginView.fxml"));
-		Scene tela = new Scene(login);
-		boolean condicao = new LoginBO().fazerlogin(nome_email, senha);
-		if(condicao) {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuAlunoView.fxml"));
-			Parent parent;
-			try {
-				 
-				 parent = loader.load();
-				 MenuAlunoController menuAlunoController = loader.getController();
-				 menuAlunoController.lblUser.setText(txtEmailOuUser.getText());
-				 Scene scene = new Scene(parent);
-				 
-				 Main.getStage().setScene(scene);
-			    
-			} catch (IOException e) {
-			    
-			    e.printStackTrace();
-			}
-		}
+		String nomeUser = txtEmailOuUser.getText();
+		
+		String login = new LoginBO().fazerlogin(nome_email, senha);
+		System.out.println(login);
+		
+		if(login.equals("usuario")) {
+			 Servicos.chamarTela("/view/MenuUsuarioView.fxml", nomeUser, MenuUsuarioController.class);
+			
+		} else if (login.equals("adm")) {
+			Servicos.chamarTela("/view/MenuAdministradorView.fxml", nomeUser, MenuAdministradorController.class);
+
+		} else JOptionPane.showMessageDialog(null, "Dados Incorretos  ");
 	}
 
 	@FXML

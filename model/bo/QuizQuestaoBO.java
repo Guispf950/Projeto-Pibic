@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 import javax.swing.JOptionPane;
 
-import controller.QuizAlterarQuestaoController;
+import controller.QuizAlterarQuestao;
 import controller.QuizCriarController;
 import javafx.scene.Scene;
 import model.dao.UsuarioDAO;
@@ -56,7 +56,7 @@ public class QuizQuestaoBO {
 
 	}
 	public void proximaQuestao(String pergunta, String alternativaA, String alternativaB, String alternativaC,
-			String alternativaD, String resposta,  QuizAlterarQuestaoController tela, String id_jogo, int numeroQuestao) {
+			String alternativaD, String resposta,  QuizAlterarQuestao tela, String id_jogo, int numeroQuestao) {
 
 		if (!pergunta.trim().isEmpty() && !alternativaA.trim().isEmpty() && !alternativaB.trim().isEmpty()
 

@@ -225,7 +225,7 @@ public class AgrupePalavrasQuestaoDAO {
 					condicao = true;
 					String nomeJogo = rs2.getString("nomeAgrupePalavras");
 					int idAutor = rs2.getInt("idAutor");
-					ProfessorVO professor = new ProfessorDAO().pegarDadosProfessorComId(idAutor);
+					ProfessorVO professor = new AdministradorDAO().pegarDadosAdministradorComId(idAutor);
 					rs3 = pStatement3.executeQuery();
 
 					if (rs3.next()) {

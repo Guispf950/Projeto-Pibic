@@ -114,7 +114,7 @@ public class UsuarioDAO {
 					JOptionPane.showMessageDialog(null, "Dados Incorretos", "Erro na Restauração",
 							JOptionPane.ERROR_MESSAGE);
 			} else
-				new ProfessorDAO().restaurarSenhaAluno(nome, sobrenome, email, senha, dataNasc, nomeCachorro, comidaFav,
+				new AdministradorDAO().restaurarSenhaAluno(nome, sobrenome, email, senha, dataNasc, nomeCachorro, comidaFav,
 						tela);
 
 		} catch (SQLException e) {
@@ -144,7 +144,7 @@ public class UsuarioDAO {
 
 	public int pegarIdComNomeUser(String user) {
 		int idAluno = 0;
-		String sql1 = "SELECT id FROM aluno WHERE usuario = (?);";
+		String sql1 = "SELECT id FROM usuario WHERE usuario = (?);";
 
 		PreparedStatement pStatement1 = null;
 		ResultSet rs1 = null;

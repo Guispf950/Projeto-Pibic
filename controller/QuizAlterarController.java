@@ -28,6 +28,7 @@ import model.bo.QuizBO;
 import model.bo.QuizQuestaoBO;
 import model.vo.QuizQuestaoVO;
 import model.vo.QuizVO;
+import servicos.Servicos;
 
 public class QuizAlterarController implements Initializable {
 	@FXML
@@ -56,7 +57,7 @@ public class QuizAlterarController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		List<QuizVO> listaQuiz = new QuizBO().consultarQuizProf(userProf);
+		List<QuizVO> listaQuiz = new QuizBO().consultarQuizAdm(userProf);
 	 
 		for (int i = 0; i < listaQuiz.size(); i++) {
 			 
@@ -144,18 +145,7 @@ public class QuizAlterarController implements Initializable {
 	
 	@FXML
 	public void onBttnVoltar() {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuProfessorView.fxml"));
-		Parent parent;
-		try {
-			parent = loader.load();
-			MenuProfessorController tela1 = loader.getController();
-			tela1.getLblUser().setText(userProf);
-			Scene scene = new Scene(parent);
-			Main.getStage().setScene(scene);
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
+		Servicos.chamarTela("/view/MenuAdministradorView.fxml", userProf, MenuAdministradorController.class);
 
 	}
 
@@ -216,7 +206,7 @@ public class QuizAlterarController implements Initializable {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/QuizAlterarQuestao.fxml"));
 			Parent parent = loader.load();
-			QuizAlterarQuestaoController quizAlterarQuestao = loader.getController();
+			QuizAlterarQuestao quizAlterarQuestao = loader.getController();
 			quizAlterarQuestao.setId_jogo(id);
 			quizAlterarQuestao.setUserProf(userProf);
 			quizAlterarQuestao.getTxtTiuloQuiz().setText(nome);

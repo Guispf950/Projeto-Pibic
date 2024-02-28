@@ -256,7 +256,7 @@ public class AgrupeAsPalavrasCriarController implements Initializable {
 			Parent parent;
 			try {
 				parent = loader.load();
-				MenuProfessorController tela1 = loader.getController();
+				MenuAdministradorController tela1 = loader.getController();
 				tela1.getLblUser().setText(userProf);
 				Scene scene = new Scene(parent);
 				Main.getStage().setScene(scene);

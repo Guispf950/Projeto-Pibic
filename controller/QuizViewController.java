@@ -77,7 +77,7 @@ public class QuizViewController implements Initializable {
 
 						FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuAlunoView.fxml"));
 						Parent parent = loader.load();
-						MenuAlunoController quizAlterarQuestao = loader.getController();
+						MenuUsuarioController quizAlterarQuestao = loader.getController();
 
 						quizAlterarQuestao.getLblUser().setText(userAluno);
 						quizAlterarQuestao.initialize(null, null);
@@ -110,7 +110,7 @@ public class QuizViewController implements Initializable {
 
 						FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuAlunoView.fxml"));
 						Parent parent = loader.load();
-						MenuAlunoController quizAlterarQuestao = loader.getController();
+						MenuUsuarioController quizAlterarQuestao = loader.getController();
 
 						quizAlterarQuestao.getLblUser().setText(userAluno);
 						quizAlterarQuestao.initialize(null, null);
@@ -297,7 +297,7 @@ public class QuizViewController implements Initializable {
 				JOptionPane.showMessageDialog(null, "O quiz acabou, sua pontuação foi: " + acertos);
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuAlunoView.fxml"));
 				Parent parent = loader.load();
-				MenuAlunoController quizAlterarQuestao = loader.getController();
+				MenuUsuarioController quizAlterarQuestao = loader.getController();
 
 				quizAlterarQuestao.getLblUser().setText(userAluno);
 				quizAlterarQuestao.initialize(null, null);

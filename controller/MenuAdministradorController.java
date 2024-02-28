@@ -1,6 +1,6 @@
 package controller;
 
-import java.io.IOException;
+import java.io.IOException; 
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -15,10 +15,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import view.CriarAcerteAPalavra;
+ 
 import view.CriarFlashCar;
 
-public class MenuProfessorController implements Initializable {
+public class MenuAdministradorController implements Initializable {
 
 	@FXML
 	private ImageView fotoPerfil;
@@ -168,12 +168,12 @@ public class MenuProfessorController implements Initializable {
  
 	@FXML
 	public void onbttnAcerteAPalavraAction() {
-	 
-		 new CriarAcerteAPalavra(this.lblUser.getText()).setVisible(true);
+		
+		 
 	}
 	@FXML
 	public void onBttnFlashCardAction() {
-	     new CriarFlashCar(this.lblUser.getText()).setVisible(true);
+	      
 	}
 	@FXML
 	public void onBttnSair() {

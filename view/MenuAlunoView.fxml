@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="791.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuAlunoController">
+<AnchorPane prefHeight="791.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuUsuarioController">
    <children>
       <BorderPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="792.0" prefWidth="1536.0" style="-fx-background-color: #4D1B86;">
          <left>
@@ -49,7 +49,7 @@
                      </image>
                   </ImageView>
                   <Button layoutX="69.0" layoutY="413.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="254.0" style="-fx-background-color: #29318A; -fx-background-radius: 15; -fx-border-style: solid; -fx-border-radius: 15; -fx-border-color: #ffbc11; -fx-border-width: 2;" AnchorPane.topAnchor="413.0" />
-                  <Label fx:id="sair" contentDisplay="CENTER" layoutX="131.0" layoutY="434.0" onMousePressed="#onLblSair" prefHeight="0.0" prefWidth="92.0" text="      Sair" textFill="WHITE" AnchorPane.topAnchor="434.0">
+                  <Label fx:id="sair" contentDisplay="CENTER" layoutX="131.0" layoutY="434.0" prefHeight="0.0" prefWidth="92.0" text="      Sair" textFill="WHITE" AnchorPane.topAnchor="434.0">
                      <font>
                         <Font size="25.0" />
                      </font>

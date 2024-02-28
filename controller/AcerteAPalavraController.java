@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -25,11 +28,14 @@ import model.dao.AcertePalavraQuestaoDAO;
 import model.dao.FlashCardQuestaoDAO;
 import model.vo.AcertePalavraQuestaoVO;
 import model.vo.FlashCardQuestaoVO;
+import servicos.Servicos;
 
 public class AcerteAPalavraController implements Initializable {
 	int acertos = 0;
 	private TextField[][] salvarTextFields;
 	private TextField[][] salvarTextFields1;
+	
+
 	TextField salvarPalavra[];
 	Timestamp tempoInicial;
 	String id_jogo;
@@ -46,25 +52,29 @@ public class AcerteAPalavraController implements Initializable {
 	private GridPane grid2;
 
 	private Boolean init = false;
-	
+
 	@FXML
 	private ImageView finalizarJogo;
 	
+	@FXML
+	private ImageView sairJogo;
 	
+	List<AcertePalavraQuestaoVO> Questoes;
+	List<AcertePalavraQuestaoVO> questoes ;
+	List<AcertePalavraQuestaoVO> questoes1;
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		if(init) {
-			List<AcertePalavraQuestaoVO> Questoes = new AcertePalavraQuestaoDAO().consultarQuestoes(id_jogo);
-			List<AcertePalavraQuestaoVO> questoes = Questoes.subList(0, Questoes.size()/2);
-			List<AcertePalavraQuestaoVO> questoes1 = Questoes.subList(Questoes.size()/2, Questoes.size());
+		if (init) {
 			
-			System.out.println(questoes);
-			System.out.println(questoes1);
-			
+			Questoes = new AcertePalavraQuestaoDAO().consultarQuestoes(id_jogo);
+			questoes = Questoes.subList(0, Questoes.size() / 2);
+			questoes1 = Questoes.subList(Questoes.size() / 2, Questoes.size());
+
 			salvarTextFields = new TextField[questoes.size()][];
 
 			for (int i = 0; i < questoes.size(); i++) {
-				
+
 				String palavra = questoes.get(i).getPalavra();
 				salvarTextFields[i] = new TextField[questoes.get(i).getPalavra().length()];
 				for (int j = 0; j < palavra.length(); j++) {
@@ -92,21 +102,19 @@ public class AcerteAPalavraController implements Initializable {
 					salvarTextFields[i][j] = textField;
 					System.out.println(salvarTextFields[i][j]);
 					final int linha = i;
-					System.out.println("linhaaa: " + linha);
 
 					textField.setOnMouseClicked(event -> {
 						lblDica.setText(questoes.get(linha).getDica());
 					});
-					
+
 					grid2.add(textField, j, i);
 				}
 			}
-			
-		
+
 			salvarTextFields1 = new TextField[questoes1.size()][];
 
 			for (int i = 0; i < questoes1.size(); i++) {
-				
+
 				String palavra = questoes1.get(i).getPalavra();
 				salvarTextFields1[i] = new TextField[questoes1.get(i).getPalavra().length()];
 				for (int j = 0; j < palavra.length(); j++) {
@@ -139,7 +147,7 @@ public class AcerteAPalavraController implements Initializable {
 					textField.setOnMouseClicked(event -> {
 						lblDica.setText(questoes1.get(linha).getDica());
 					});
-					
+
 					grid1.add(textField, j, i);
 				}
 			}
@@ -150,7 +158,7 @@ public class AcerteAPalavraController implements Initializable {
 				rowConstraints.setVgrow(Priority.SOMETIMES);
 				grid1.getRowConstraints().add(rowConstraints);
 			}
-			
+
 			for (int i = 0; i < questoes.size(); i++) {
 				RowConstraints rowConstraints = new RowConstraints();
 				rowConstraints.setVgrow(Priority.SOMETIMES);
@@ -169,17 +177,15 @@ public class AcerteAPalavraController implements Initializable {
 				columnConstraints.setHgrow(Priority.SOMETIMES);
 				grid2.getColumnConstraints().add(columnConstraints);
 			}
-			
-			
-			
+
 			finalizarJogo.setOnMouseClicked(event -> {
 				onFinalizarAcertePalavra();
-				
+
 			});
-		}else {
-			init=true;
+		} else {
+			init = true;
 		}
-		
+
 	}
 
 	private TextField createAlphanumericAutoFocusTextField() {
@@ -231,14 +237,20 @@ public class AcerteAPalavraController implements Initializable {
 			previousTextField.requestFocus();
 		}
 	}
-
+	
+	 @FXML
+		private void onSairAcertePalavra() {
+		 Servicos.chamarTela("/view/MenuUsuarioView.fxml", userAluno, MenuUsuarioController.class);
+	 }
+	@FXML
 	private void onFinalizarAcertePalavra() {
 		List<AcertePalavraQuestaoVO> questoes = new ArrayList<>();
 		questoes = new AcertePalavraQuestaoController().consultarQuestoesId(id_jogo);
-		System.out.println(questoes.get(0).getPalavra());
+		 
+		 
 		String palavra = "";
 
-		for (int i = 0; i < questoes.size(); i++) {
+		for (int i = 0; i < questoes.size() && i < salvarTextFields.length; i++) {
 			palavra = "";
 			for (int j = 0; j < questoes.get(i).getPalavra().length(); j++) {
 
@@ -246,18 +258,49 @@ public class AcerteAPalavraController implements Initializable {
 
 			}
 
-			System.out.println(palavra);
-			boolean acertou = new AcertePalavraQuestaoDAO().verificarResposta(palavra, id_jogo, i + 1);
+			boolean acertou = new AcertePalavraQuestaoDAO().verificarResposta(palavra, id_jogo, i);
+
 			if (acertou) {
 				acertos++;
+				for (int l = 0; l < questoes.get(i).getPalavra().length(); l++) {
+
+					this.getSalvarTextFields()[i][l].setStyle("-fx-background-color: green;");
+
+				}
 			}
 
-		}
+		} for (int i = 0; i < questoes.size() && i < salvarTextFields1.length; i++) {
+			palavra = "";
+			for (int j = 0; j < questoes.get(i).getPalavra().length(); j++) {
+
+				palavra += salvarTextFields1[i][j].getText().toUpperCase();
+			
+
+			}
+			System.out.println("PALAVRA FORMADA: "+palavra);
+			 
+			boolean acertou = new AcertePalavraQuestaoDAO().verificarResposta(palavra, id_jogo, i+5);
+			System.out.println("ACERTOU : "+acertou);
+		 
+			if (acertou) {
+				acertos++;
+				for(int l = 0 ; l < questoes.get(i).getPalavra().length();l++ ) {
+	        		  
+	        		  this.getSalvarTextFields1()[i][l].setStyle("-fx-background-color: green;");
+	        	 
+	        		  
+	        	  }
+			}
+
+		} 
+		 
 		
-		new AcertePalavraQuestaoController().finalizarAcertePalavra(id_jogo, this, acertos, tempoInicial);
+		
+		 
+		
+	//	new AcertePalavraQuestaoController().finalizarAcertePalavra(id_jogo, this, acertos, tempoInicial);
 
 	}
-	
 
 	public int getAcertos() {
 		return acertos;
@@ -330,6 +373,11 @@ public class AcerteAPalavraController implements Initializable {
 	public void setGrid1(GridPane grid1) {
 		this.grid1 = grid1;
 	}
-	
-	
+	public TextField[][] getSalvarTextFields1() {
+		return salvarTextFields1;
+	}
+
+	public void setSalvarTextFields1(TextField[][] salvarTextFields1) {
+		this.salvarTextFields1 = salvarTextFields1;
+	}
 }

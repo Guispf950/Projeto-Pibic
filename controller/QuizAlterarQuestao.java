@@ -25,8 +25,9 @@ import javafx.scene.layout.VBox;
 import model.bo.QuizBO;
 import model.bo.QuizQuestaoBO;
 import model.vo.QuizQuestaoVO;
+import servicos.Servicos;
 
-public class QuizAlterarQuestaoController implements Initializable {
+public class QuizAlterarQuestao implements Initializable {
 
 	@FXML
 	private VBox vbox;
@@ -98,7 +99,7 @@ public class QuizAlterarQuestaoController implements Initializable {
 		lblQuestao.setText("1");
 		System.out.println(lblQuestao);
 		if (initialized) {
-			System.out.println(userProf);
+			
 
 			grupoAlternativas = new ToggleGroup();
 			rbAlternativaA.setToggleGroup(grupoAlternativas);
@@ -156,7 +157,7 @@ public class QuizAlterarQuestaoController implements Initializable {
 				if (rbAlternativaD.isSelected()) {
 					resposta = alternativa1;
 				}
-				QuizAlterarQuestaoController tela = this;
+				QuizAlterarQuestao tela = this;
 				System.out.println("ID DO QUIZ" + id_jogo);
 				new QuizQuestaoBO().proximaQuestao(questao, alternativa1, alternativa2, alternativa3, alternativa4,
 						resposta, tela, id_jogo, Integer.valueOf(lblQuestao.getText()));
@@ -164,18 +165,7 @@ public class QuizAlterarQuestaoController implements Initializable {
 			});
 			bttnFinalizarQuiz.setOnMouseClicked(event -> {
 
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuProfessorView.fxml"));
-				Parent parent;
-				try {
-					parent = loader.load();
-					MenuProfessorController tela1 = loader.getController();
-					tela1.getLblUser().setText(userProf);
-					Scene scene = new Scene(parent);
-					Main.getStage().setScene(scene);
-				} catch (IOException e) {
-
-					e.printStackTrace();
-				}
+				Servicos.chamarTela("/view/MenuAdministradorView.fxml", userProf, MenuAdministradorController.class);
 			});
 
 		} else {
@@ -279,7 +269,7 @@ public class QuizAlterarQuestaoController implements Initializable {
 		if (rbAlternativaD.isSelected()) {
 			resposta = alternativa1;
 		}
-		QuizAlterarQuestaoController tela = this;
+		QuizAlterarQuestao tela = this;
 		new QuizQuestaoBO().proximaQuestao(questao, alternativa1, alternativa2, alternativa3, alternativa4, resposta,
 				tela, id_jogo, Integer.valueOf(lblQuestao.getText()));
 		int ultimaQuestao = new QuizQuestaoBO().totalQuestaoQuiz(id_jogo) + 1;
@@ -292,18 +282,7 @@ public class QuizAlterarQuestaoController implements Initializable {
 
 	@FXML
 	public void onBttnVoltar() {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuProfessorView.fxml"));
-		Parent parent;
-		try {
-			parent = loader.load();
-			MenuProfessorController tela1 = loader.getController();
-			tela1.getLblUser().setText(userProf);
-			Scene scene = new Scene(parent);
-			Main.getStage().setScene(scene);
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
+		Servicos.chamarTela("/view/MenuAdministradorView.fxml", userProf, MenuAdministradorController.class);
 
 	}
 

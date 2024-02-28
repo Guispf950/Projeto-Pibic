@@ -23,6 +23,7 @@ import javafx.scene.image.ImageView;
 import model.dao.FlashCardQuestaoDAO;
 import model.vo.FlashCardQuestaoVO;
 import model.vo.QuizQuestaoVO;
+import servicos.Servicos;
 
 public class FlashCardController1 implements Initializable {
 
@@ -58,15 +59,15 @@ public class FlashCardController1 implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+	 
 		if (init) {
 			List<FlashCardQuestaoVO> questoes = new FlashCardQuestaoDAO().consultarQuestoes(idJogo);
-			int numeroQuestoes = questoes.size();
-			System.out.println(questoes);
+			
 
 			bttnVerdadeiro.setOnMouseClicked(event -> {
-				if (event.getClickCount() == 2) {
-					// alerts
-					if (showConfirmationDialog("Você tem certeza dessa alternativa?")) {
+				if (event.getClickCount() == 1) {
+					if (numeroQuestao < questoes.size()) {
+
 						// Salvar resposta
 						numeroQuestao++;
 
@@ -80,21 +81,19 @@ public class FlashCardController1 implements Initializable {
 
 						lblPergunta.setText(questoes.get(numeroQuestao - 1).getExplicacao());
 
-					} else {
-						System.out.println("Usuário clicou em Cancelar");
+					} else
+						showConfirmationDialog("Você esta na ultima questao");
 
-					}
 				}
+			}
 
-			});
+			);
 
 			bttnFalso.setOnMouseClicked(event -> {
-				if (event.getClickCount() == 2) {
-					// alerts
-					if (showConfirmationDialog("Você tem certeza dessa alternativa?")) {
+				if (event.getClickCount() == 1) {
+					if (numeroQuestao < questoes.size()) {
 						// Salvar resposta
 						numeroQuestao++;
-
 						int condicao = 0;
 						String idFlashCard = this.idJogo;
 						boolean acertou = new FlashCardQuestaoController().verificarResposta(condicao, idFlashCard,
@@ -102,32 +101,31 @@ public class FlashCardController1 implements Initializable {
 						if (acertou) {
 							acertos++;
 						}
-
 						lblPergunta.setText(questoes.get(numeroQuestao - 1).getExplicacao());
 
-					} else {
-						System.out.println("Usuário clicou em Cancelar");
+					} else
+						showConfirmationDialog("Você esta na ultima questao");
 
-					}
 				}
+			}
 
-			});
+			);
 
 			proximaQuestao.setOnMouseClicked(event -> {
 				if (event.getClickCount() == 1) {
-					if (questao < questoes.size()) {
+					if (numeroQuestao < questoes.size()) {
 						if (questoes.get(numeroQuestao - 1).getExplicacao() == lblPergunta.getText()) {
 							lblPergunta.setText(questoes.get(numeroQuestao).getFrase());
-							lblCard.setText("Card " + questoes.get(numeroQuestao).getId() + "/" + Integer.toString(questoes.size()));
-						} else {
-							if (showConfirmationDialog("Responda se é verdadeiro ou falso")) {
-							}
+							lblCard.setText("Card " + questoes.get(numeroQuestao).getId() + "/"
+									+ Integer.toString(questoes.size()));
+						} else 	
+							showConfirmationDialog("Responda se é verdadeiro ou falso"); {
+							
 						}
 
 					} else {
-						if (showConfirmationDialog("Limite de FlashCards alcançados!!")) {
-
-						}
+						showConfirmationDialog("Você Finalizou o Jogou, sua pontuação foi : " + acertos);
+						Servicos.chamarTela("/view/MenuUsuarioView.fxml", userAluno, MenuUsuarioController.class);
 					}
 
 				}
@@ -143,7 +141,7 @@ public class FlashCardController1 implements Initializable {
 
 						FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuAlunoView.fxml"));
 						Parent parent = loader.load();
-						MenuAlunoController quizAlterarQuestao = loader.getController();
+						MenuUsuarioController quizAlterarQuestao = loader.getController();
 
 						quizAlterarQuestao.getLblUser().setText(userAluno);
 						quizAlterarQuestao.initialize(null, null);
@@ -176,7 +174,7 @@ public class FlashCardController1 implements Initializable {
 
 						FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuAlunoView.fxml"));
 						Parent parent = loader.load();
-						MenuAlunoController quizAlterarQuestao = loader.getController();
+						MenuUsuarioController quizAlterarQuestao = loader.getController();
 
 						quizAlterarQuestao.getLblUser().setText(userAluno);
 						quizAlterarQuestao.initialize(null, null);

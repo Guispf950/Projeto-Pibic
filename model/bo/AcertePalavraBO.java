@@ -6,7 +6,7 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 import model.dao.AcertePalavraDAO;
-import model.dao.ProfessorDAO;
+import model.dao.AdministradorDAO;
 import model.dao.QuizDAO;
 import model.vo.AcertePalavraVO;
 import model.vo.QuizVO;
@@ -19,7 +19,7 @@ public class AcertePalavraBO {
 		int i = r.nextInt(0xFFFFF); // de 0 até o maior numero de 5 digitos em hexadecimal
 		String idJogo = String.format("%05X", i); // "%05X" serve para formatar o numero em 5 digitos
 		Timestamp horaCriacao = new Timestamp(System.currentTimeMillis());
-		int idProfessor = new ProfessorDAO().pegarIdComNomeUser(nomeProfessor);
+		int idProfessor = new AdministradorDAO().pegarIdComNomeUser(nomeProfessor);
 
 		AcertePalavraVO acertePalavra = new AcertePalavraVO(idJogo, idProfessor, nomeJogo, horaCriacao);
 		id_jogo = new AcertePalavraDAO().criarAcertePalavra(acertePalavra);

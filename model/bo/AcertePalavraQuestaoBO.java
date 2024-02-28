@@ -11,7 +11,7 @@ import controller.AcertePalavraController;
 import model.dao.AcertePalavraQuestaoDAO;
 import model.dao.UsuarioDAO;
 import model.dao.PontuacaoDAO;
-import model.dao.ProfessorDAO;
+import model.dao.AdministradorDAO;
 import model.dao.QuizDAO;
 import model.dao.QuizQuestaoDAO;
 import model.vo.AcertePalavraQuestaoVO;

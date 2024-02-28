@@ -24,6 +24,7 @@ import javafx.scene.layout.VBox;
 import model.bo.QuizBO;
 import model.bo.QuizQuestaoBO;
 import model.vo.QuizQuestaoVO;
+import servicos.Servicos;
 
 public class QuizCriarController implements Initializable {
 
@@ -90,7 +91,7 @@ public class QuizCriarController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		System.out.println(userProf);
+		 
 		lblQuestao.setText("1");
 		grupoAlternativas = new ToggleGroup();
 		rbAlternativaA.setToggleGroup(grupoAlternativas);
@@ -217,18 +218,8 @@ public class QuizCriarController implements Initializable {
 
 	@FXML
 	public void onBttnVoltar() {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuProfessorView.fxml"));
-		Parent parent;
-		try {
-			parent = loader.load();
-			MenuProfessorController tela1 = loader.getController();
-			tela1.getLblUser().setText(userProf);
-			Scene scene = new Scene(parent);
-			Main.getStage().setScene(scene);
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
+		Servicos.chamarTela("/view/MenuAdministradorView.fxml",  userProf, MenuAdministradorController.class);
+		 
 
 	}
 
@@ -263,18 +254,7 @@ public class QuizCriarController implements Initializable {
 		}
 	}
 
-	private void mudarCena(String absoluteView) {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteView));
-		try {
-			Parent parent = loader.load();
-			Scene scene = new Scene(parent);
-			Main.setMainScene(scene);
-			Main.getStage().setScene(scene);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
 
 	public String getUserProf() {
 		return userProf;

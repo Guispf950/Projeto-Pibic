@@ -60,7 +60,7 @@ public class AcertePalavraQuestaoController {
 		return questoes;
 	}
 	
-	public void finalizarAcertePalavra(String idAcertePalavra, TelaAcerteAPalavraAluno tela, int acertos, Timestamp tempoInicial) {
+	public void finalizarAcertePalavra(String idAcertePalavra, AcerteAPalavraController tela, int acertos, Timestamp tempoInicial) {
 			
 		List<AcertePalavraQuestaoVO> questoes = new AcertePalavraQuestaoDAO().consultarQuestoes(idAcertePalavra);
 		 
@@ -80,7 +80,9 @@ public class AcertePalavraQuestaoController {
 	          boolean acertou =  new AcertePalavraQuestaoDAO().verificarResposta(palavra, idAcertePalavra, i+1);
 	          if(acertou) {
 	        	  for(int l = 0 ; l < questoes.get(i).getPalavra().length();l++ ) {
-	        		  tela.getSalvarTextFields()[i][l].setBackground(Color.green);
+	        		  
+	        		  tela.getSalvarTextFields()[i][l].setStyle("-fx-background-color: green;");
+	        	 
 	        		  
 	        	  }
 	        	  

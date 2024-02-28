@@ -54,8 +54,8 @@ public class PontuacaoDAO {
 
 	public int vezesJogadas(int idAluno, String id_jogo) {
 		int vezesJogadas = 0;
-		String sql1 = "SELECT COUNT(*) as total FROM pontuacao WHERE idAluno = (?) && id_jogo = (?);";
-
+		String sql1 = "SELECT COUNT(*) as total FROM pontuacao WHERE idAluno = (?) && id_quiz = (?) || id_flash_card = (?) || id_acerte_palavra = (?) || id_agrupe_palavras = (?);";
+		
 		PreparedStatement pStatement1 = null;
 		ResultSet rs1 = null;
 		Connection conn = null;
@@ -64,6 +64,9 @@ public class PontuacaoDAO {
 			pStatement1 = conn.prepareStatement(sql1);
 			pStatement1.setInt(1, idAluno);
 			pStatement1.setString(2, id_jogo);
+			pStatement1.setString(3, id_jogo);
+			pStatement1.setString(4, id_jogo);
+			pStatement1.setString(5, id_jogo);
 			rs1 = pStatement1.executeQuery();
 			if (rs1.next()) {
 				vezesJogadas = rs1.getInt("total");

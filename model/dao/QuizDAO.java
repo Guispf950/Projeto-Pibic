@@ -1,6 +1,6 @@
 package model.dao;
 
-import java.security.Timestamp;
+import java.security.Timestamp; 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 import model.vo.QuizQuestaoVO;
 import model.vo.QuizVO;
-import view.TelaQuiz;
+ 
 
 public class QuizDAO {
 
@@ -211,7 +211,7 @@ public class QuizDAO {
 
 	}
 
-	public List<QuizVO> consultarQuizProf(int idAutor) {
+	public List<QuizVO> consultarQuizAdm(int idAutor) {
 		String sql1 = "SELECT * FROM quiz where idAutor = (?);";
 
 		PreparedStatement pStatement1 = null;

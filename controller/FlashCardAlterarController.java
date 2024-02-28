@@ -147,7 +147,7 @@ public class FlashCardAlterarController implements Initializable{
 		Parent parent;
 		try {
 			parent = loader.load();
-			MenuProfessorController tela1 = loader.getController();
+			MenuAdministradorController tela1 = loader.getController();
 			tela1.getLblUser().setText(userProf);
 			Scene scene = new Scene(parent);
 			Main.getStage().setScene(scene);
@@ -215,7 +215,7 @@ public class FlashCardAlterarController implements Initializable{
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/QuizAlterarQuestao.fxml"));
 			Parent parent = loader.load();
-			QuizAlterarQuestaoController quizAlterarQuestao = loader.getController();
+			QuizAlterarQuestao quizAlterarQuestao = loader.getController();
 			quizAlterarQuestao.setId_jogo(id);
 			quizAlterarQuestao.setUserProf(userProf);
 			quizAlterarQuestao.getTxtTiuloQuiz().setText(nome);

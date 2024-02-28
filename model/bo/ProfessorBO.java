@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 import model.dao.UsuarioDAO;
 import model.dao.Conexao;
-import model.dao.ProfessorDAO;
+import model.dao.AdministradorDAO;
 import model.vo.UsuarioVO;
 import model.vo.ProfessorVO;
 import view.TelaCadastro;
@@ -37,7 +37,7 @@ public class ProfessorBO {
 					}
 					ProfessorVO professor = new ProfessorVO(nome, sobrenome, email, user, senha, dataNasc, nomeCachorro,
 							comidaFav);
-					new ProfessorDAO().cadastrarProfessor(professor, tela);
+					new AdministradorDAO().cadastrarProfessor(professor, tela);
 				} else
 					JOptionPane.showMessageDialog(null, "Digite a data no formato dd/MM/yyyy", "Erro no Cadastro",
 							JOptionPane.ERROR_MESSAGE);

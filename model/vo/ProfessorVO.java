@@ -14,6 +14,7 @@ public class ProfessorVO {
 		private Date datanasc;
 		private String nomeCachorro;
 		private String comidaFav;
+		private String dicaSenha;
 		
 		public ProfessorVO() {}
  
@@ -28,6 +29,20 @@ public class ProfessorVO {
 			this.datanasc = datanasc;
 			this.nomeCachorro = nomeCachorro;
 			this.comidaFav = comidaFav;
+		}
+
+		public ProfessorVO(String nomeUser, String senha, String dicaSenha) {
+			 this.user = nomeUser;
+			 this.senha = senha;
+			 this.dicaSenha = dicaSenha;
+		}
+
+		public String getDicaSenha() {
+			return dicaSenha;
+		}
+
+		public void setDicaSenha(String dicaSenha) {
+			this.dicaSenha = dicaSenha;
 		}
 
 		public String getNome() {

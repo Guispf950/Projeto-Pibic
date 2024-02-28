@@ -17,7 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class MenuAlunoController implements Initializable {
+public class MenuUsuarioController implements Initializable {
 	
 	@FXML Button seta;
 	@FXML TextField txtCodigoJogo;
@@ -30,7 +30,7 @@ public class MenuAlunoController implements Initializable {
 		
 		
 		seta.setOnMouseClicked(event -> {
-			String id_quiz = txtCodigoJogo.getText();
+			String idJogo = txtCodigoJogo.getText();
 			String userAluno = lblUser.getText();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/QuizView.fxml"));
 			Parent parent;
@@ -38,7 +38,7 @@ public class MenuAlunoController implements Initializable {
 				 
 				 parent = loader.load();
 				 Scene scene = new Scene(parent);
-				 new QuizQuestaoController().visualizarQuestaoTelaMenu(id_quiz, userAluno, scene);
+				 new QuizQuestaoController().visualizarQuestaoTelaMenu(idJogo, userAluno, scene);
 			    
 			} catch (IOException e) {
 			    
@@ -48,9 +48,27 @@ public class MenuAlunoController implements Initializable {
 		    
 		});
 		
+
+		sair.setOnMouseClicked(event -> {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/LoginView.fxml"));
+			Parent parent;
+			try {
+				 
+				 parent = loader.load();
+				 Scene scene = new Scene(parent);
+				 
+				 Main.getStage().setScene(scene);
+			    
+			} catch (IOException e) {
+			    
+			    e.printStackTrace();
+			}
+			
+		    
+		});
 		
-		
-	}
+	} 
+	  	
 	
 	public Button getSeta() {
 		return seta;
@@ -100,10 +118,6 @@ public class MenuAlunoController implements Initializable {
 	 @FXML
 	    private Label lblSair;
 
-	    @FXML
-	    private void onLblSair(ActionEvent event) {
-	        // Lógica para manipular o evento de pressionar o rótulo "Sair"
-	        System.out.println("Sair clicado!");
-	    }
+	   
 
 }

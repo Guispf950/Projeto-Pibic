@@ -9,26 +9,26 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuProfessorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuAdministradorController">
    <children>
       <BorderPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="791.0" prefWidth="1536.0" style="-fx-background-color: #1A1D6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1146.0" style="-fx-background-color: #1A1D6C;" BorderPane.alignment="CENTER">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="1146.0" style="-fx-background-color: #2A45AD;" BorderPane.alignment="CENTER">
                <children>
                   <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="89.0" prefHeight="102.0" prefWidth="242.0" text="Jogos " textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font name="Segoe UI Black" size="70.0" />
                      </font>
                   </Label>
-                  <AnchorPane layoutX="59.2" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="658.0" prefWidth="1030.0" style="-fx-background-color: #576CD9; -fx-background-radius: 15; -fx-border-width: 5; -fx-border-style: solid; -fx-border-color: DEE5FF; -fx-border-radius: 15;">
+                  <AnchorPane layoutX="59.2" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="658.0" prefWidth="1030.0" style="-fx-background-color: #515CE0; -fx-background-radius: 15; -fx-border-width: 5; -fx-border-style: solid; -fx-border-color: #ffbc11; -fx-border-radius: 15;">
                      <children>
-                        <Button fx:id="bttnFlashcards" layoutX="145.0" layoutY="341.0" mnemonicParsing="false" onAction="#onBttnFlashCardAction" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: DEE5FF; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />
-                        <Button fx:id="bttnAgrupePalavras" layoutX="145.0" layoutY="29.0" mnemonicParsing="false" onAction="#onBttnAgrupePalavrasAction" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: DEE5FF; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />
-                        <Button fx:id="bttnQuiz" layoutX="548.0" layoutY="29.0" mnemonicParsing="false" onAction="#onBttnQuizAction" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: DEE5FF; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />
-                        <Button fx:id="bttnAcerteAPalavra" layoutX="548.0" layoutY="341.0" mnemonicParsing="false" onAction="#onbttnAcerteAPalavraAction" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: DEE5FF; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />
-                        <ImageView fitHeight="151.0" fitWidth="162.0" layoutX="225.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                        <Button fx:id="bttnFlashcards" layoutX="145.0" layoutY="341.0" mnemonicParsing="false" onAction="#onBttnFlashCardAction" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #ffbc11; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />
+                        <Button fx:id="bttnAgrupePalavras" layoutX="145.0" layoutY="29.0" mnemonicParsing="false" onAction="#onBttnAgrupePalavrasAction" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #ffbc11; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />
+                        <Button fx:id="bttnQuiz" layoutX="548.0" layoutY="29.0" mnemonicParsing="false" onAction="#onBttnQuizAction" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #ffbc11; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />
+                        <Button fx:id="bttnAcerteAPalavra" layoutX="548.0" layoutY="341.0" mnemonicParsing="false" onAction="#onbttnAcerteAPalavraAction" prefHeight="288.0" prefWidth="322.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #ffbc11; -fx-border-style: solid; -fx-border-width: 3;" wrapText="true" />
+                        <ImageView fitHeight="197.0" fitWidth="194.0" layoutX="206.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../imagens/Long%20Words.png" />
+                              <Image url="@../imagem/LogoJogoRosa.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="lblUser1" alignment="CENTER" contentDisplay="CENTER" layoutX="147.0" layoutY="236.0" prefHeight="54.0" prefWidth="317.0" text="Agrupe as Palavras" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
@@ -36,19 +36,19 @@
                               <Font name="Segoe UI Bold" size="30.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="quiz" fitHeight="151.0" fitWidth="162.0" layoutX="628.0" layoutY="76.0" onMouseClicked="#onBttnQuizAction" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="quiz" fitHeight="197.0" fitWidth="194.0" layoutX="610.0" layoutY="57.0" onMouseClicked="#onBttnQuizAction" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../imagens/Quizlet.png" />
+                              <Image url="@../imagem/LogoJogoAmarelo.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="lblUser11" alignment="CENTER" contentDisplay="CENTER" layoutX="550.0" layoutY="236.0" prefHeight="54.0" prefWidth="317.0" text="Quiz" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+                        <Label fx:id="lblUser11" alignment="CENTER" contentDisplay="CENTER" layoutX="551.0" layoutY="256.0" prefHeight="54.0" prefWidth="317.0" text="Quiz" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
                            <font>
                               <Font name="Segoe UI Bold" size="30.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="151.0" fitWidth="162.0" layoutX="225.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="197.0" fitWidth="194.0" layoutX="206.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../imagens/Questions.png" />
+                              <Image url="@../imagem/LogoJogoAzulEscuro.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="lblUser12" alignment="CENTER" contentDisplay="CENTER" layoutX="147.0" layoutY="549.0" prefHeight="54.0" prefWidth="317.0" text="Flashcards" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
@@ -56,9 +56,9 @@
                               <Font name="Segoe UI Bold" size="30.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="166.0" fitWidth="168.0" layoutX="629.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="197.0" fitWidth="194.0" layoutX="610.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../imagens/AcerteAPalavra.png" />
+                              <Image url="@../imagem/LogoJogoAzul.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="lblUser121" alignment="CENTER" contentDisplay="CENTER" layoutX="550.0" layoutY="549.0" prefHeight="54.0" prefWidth="317.0" text="Acerte a Palavra" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
@@ -72,11 +72,11 @@
             </AnchorPane>
          </center>
          <left>
-            <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="792.0" prefWidth="390.0" style="-fx-background-color: #576CD9; -fx-background-radius: 0px 30px 30px 0px; -fx-border-style: solid; -fx-border-color: DEE5FF; -fx-border-width: 5; -fx-border-radius: 0px 30px 30px 0px;">
+            <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="792.0" prefWidth="390.0" style="-fx-background-color: #515CE0; -fx-background-radius: 0px 30px 30px 0px; -fx-border-style: solid; -fx-border-color: #ffbc11; -fx-border-width: 5; -fx-border-radius: 0px 30px 30px 0px;">
                <children>
                   <ImageView fitHeight="149.0" fitWidth="149.0" layoutX="121.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="24.0">
                      <image>
-                        <Image url="@../../imagens/userIconMale.png" />
+                        <Image url="@../imagem/userIconMale.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="lblUser" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="173.0" prefHeight="54.0" prefWidth="373.0" text="Usuário" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.600000000000023" AnchorPane.topAnchor="173.0">
@@ -128,9 +128,9 @@
                         <Image url="@../../imagens/Logout.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="163.0" layoutX="122.0" layoutY="596.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" fitWidth="163.0" layoutX="120.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../imagens/LogoSplashScreen%20(1).png" />
+                        <Image url="@../imagem/LogoBurnout.png" />
                      </image>
                   </ImageView>
                </children>
