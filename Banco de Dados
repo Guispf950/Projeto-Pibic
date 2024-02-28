@@ -1,0 +1,262 @@
+CREATE DATABASE  pibic;
+USE pibic;
+
+
+#PIBIC
+CREATE TABLE usuario (
+	id int NOT NULL AUTO_INCREMENT,
+	nome varchar(250) NOT NULL,
+	senha varchar(200) NOT NULL,
+	dataNasc date NOT NULL,
+  	usuario varchar(50) NOT NULL,
+	dicaSenha varchar(200) NOT NULL,
+	sexo char(1) check(sexo in('M', 'F')),
+	PRIMARY KEY (id,usuario)
+ );  
+ 
+CREATE TABLE administrador (
+	id int NOT NULL AUTO_INCREMENT,
+    usuario varchar(50) NOT NULL,
+    senha varchar(200) NOT NULL,
+    dicaSenha varchar(200) NOT NULL
+);
+ INSERT INTO administrador (usuario, senha, dicaSenha) VALUES ('adm1', 'adm1', 'adm1');
+ 
+ CREATE TABLE jogo (
+   id char(6) NOT NULL,
+   nomeJogo varchar(150) NOT NULL,
+   idAutor int NOT NULL,
+   horaCriacao timestamp NOT NULL,
+   FOREIGN KEY (idAutor) REFERENCES administrador (id),
+   PRIMARY KEY (id)
+ );
+ 
+ CREATE TABLE quiz_questao (
+   id INT AUTO_INCREMENT NOT NULL,
+   id_quiz char(6) NOT NULL,
+   pergunta varchar(750) NOT NULL,
+   alternativaA varchar(300) NOT NULL,
+   alternativaB varchar(300) NOT NULL,
+   alternativaC varchar(300) NOT NULL,
+   alternativaD varchar(300) NOT NULL,
+   resposta varchar(300) NOT NULL,
+   PRIMARY KEY (id),
+  FOREIGN KEY (idJogo) REFERENCES jogo (id)
+ ); 
+ 
+ 
+INSERT INTO acerte_palavra (id, idAutor, nomeAcertePalavra, horaCriacao) 
+VALUES ('ID3', 1, 'Nome do Jogo', NOW());
+
+INSERT INTO acerte_palavra_questao (id_AcertePalavra, dica, palavra) 
+VALUES ('ID3', 'Dica 1', 'Palavra1'),
+       ('ID3', 'Dica 2', 'Palavra2'),
+       ('ID3', 'Dica 3', 'Palavra3'),
+       ('ID3', 'Dica 4', 'Palavra4'),
+       ('ID3', 'Dica 5', 'Palavra5'),
+       ('ID3', 'Dica 6', 'Palavra6'),
+       ('ID3', 'Dica 7', 'Palavra7'),
+       ('ID3', 'Dica 8', 'Palavra8'),
+       ('ID3', 'Dica 9', 'Palavra9'),
+       ('ID3', 'Dica 10', 'Palavra10');
+ 
+ 
+ INSERT INTO flash_card (id, idAutor, nomeFlashCard, horaCriacao) 
+VALUES ('ID2', 1, 'Nome do Flash Card', NOW());
+
+INSERT INTO flash_card_questao (idFlashCard, frase, condicao, explicacao) 
+VALUES ('ID2', 'Frase 1', 1, 'Explicação 1'),
+       ('ID2', 'Frase 2', 0, 'Explicação 2'),
+       ('ID2', 'Frase 3', 1, 'Explicação 3'),
+       ('ID2', 'Frase 4', 0, 'Explicação 4'),
+       ('ID2', 'Frase 5', 1, 'Explicação 5'),
+       ('ID2', 'Frase 6', 0, 'Explicação 6'),
+       ('ID2', 'Frase 7', 1, 'Explicação 7'),
+       ('ID2', 'Frase 8', 0, 'Explicação 8'),
+       ('ID2', 'Frase 9', 1, 'Explicação 9'),
+       ('ID2', 'Frase 10', 0, 'Explicação 10');
+ 
+ 
+ #LEARNQUEST
+ CREATE TABLE professor (
+   id int NOT NULL AUTO_INCREMENT,
+   nome varchar(200) NOT NULL,
+   sobrenome varchar(200) NOT NULL,
+   email varchar(300) NOT NULL,
+   usuario varchar(50) NOT NULL,
+   senha varchar(200) NOT NULL,
+   dataNasc date NOT NULL,
+   nomeCachorro varchar(200) NOT NULL,
+   comidaFav varchar(200) NOT NULL,
+   PRIMARY KEY (id)
+ ) ;
+ 
+ 
+
+   CREATE TABLE quiz (
+   id char(6) NOT NULL,
+   nomeQuiz varchar(150) NOT NULL,
+   idAutor int NOT NULL,
+   horaCriacao timestamp NOT NULL,
+   FOREIGN KEY (idAutor) REFERENCES professor (id),
+   PRIMARY KEY (id)
+ );
+ 
+   
+    
+   CREATE TABLE quiz_questao (
+  id INT AUTO_INCREMENT NOT NULL,
+   id_quiz char(6) NOT NULL,
+   pergunta varchar(750) NOT NULL,
+   alternativaA varchar(300) NOT NULL,
+   alternativaB varchar(300) NOT NULL,
+   alternativaC varchar(300) NOT NULL,
+   alternativaD varchar(300) NOT NULL,
+   resposta varchar(300) NOT NULL,
+   PRIMARY KEY (id),
+  FOREIGN KEY (id_quiz) REFERENCES quiz (id)
+ ) ;
+ 
+
+
+
+
+ CREATE TABLE agrupe_palavras (
+    id CHAR(6) NOT NULL,
+    idAutor int NOT NULL,
+	nomeAgrupePalavras varchar(200),
+    horaCriacao TIMESTAMP NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (idAutor) REFERENCES professor (id)
+);
+ 
+
+CREATE TABLE agrupe_palavras_questao (
+    id INT AUTO_INCREMENT NOT NULL,
+    idAgrupePalavras CHAR(6) NOT NULL,
+    grupo INT NOT NULL,
+    palavra varchar(300),
+    PRIMARY KEY(id),
+    FOREIGN KEY(idAgrupePalavras) REFERENCES agrupe_palavras(id)
+);
+CREATE TABLE flash_card (
+    id char(6) NOT NULL,
+    idAutor int NOT NULL,
+    nomeFlashCard varchar(200) NOT NULL,
+    horaCriacao TIMESTAMP NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (idAutor) REFERENCES professor (id)
+);
+ 
+CREATE TABLE flash_card_questao (
+    id INT AUTO_INCREMENT NOT NULL,
+    idFlashCard char(6) NOT NULL,
+    frase varchar(700) NOT NULL,
+    condicao TINYINT NOT NULL,
+    explicacao varchar(500) NOT NULL, 
+    PRIMARY KEY(id),
+    FOREIGN KEY(idFlashCard) REFERENCES flash_card(id)
+); # 0 É FALSO E 1 VERDADEIRO
+
+ CREATE TABLE acerte_palavra (
+    id CHAR(6) NOT NULL,
+    idAutor int NOT NULL,
+    nomeAcertePalavra varchar(200) NOT NULL,
+    horaCriacao TIMESTAMP NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (idAutor) REFERENCES professor (id)
+);
+ 
+ 
+ CREATE TABLE acerte_palavra_questao (
+    id INT AUTO_INCREMENT NOT NULL,
+    id_AcertePalavra CHAR(6) NOT NULL,
+    dica varchar(300) NOT NULL,
+    palavra varchar(200) NOT NULL,
+    PRIMARY KEY(id) ,
+    FOREIGN KEY(id_AcertePalavra) REFERENCES acerte_palavra(id)
+);
+ 
+ 
+   
+ 
+CREATE TABLE pontuacao (
+    id INT AUTO_INCREMENT NOT NULL,
+    idAluno INT NOT NULL,
+    tempoInicial TIMESTAMP NOT NULL,
+    tempoFinal TIMESTAMP NOT NULL,
+    acertos INT NOT NULL,
+    id_quiz CHAR(6) NOT NULL,
+    id_flash_card CHAR(6) NOT NULL,
+    id_acerte_palavra CHAR(6) NOT NULL,
+    id_agrupe_palavras CHAR(6) NOT NULL,
+    vezesJogadas INT NOT NULL,
+    PRIMARY KEY (id),
+   FOREIGN KEY (idAluno) REFERENCES usuario(id),
+   FOREIGN KEY ( id_flash_card) REFERENCES flash_card(id),
+   FOREIGN KEY (id_acerte_palavra) REFERENCES acerte_palavra(id),
+   FOREIGN KEY (id_quiz) REFERENCES quiz(id),
+   FOREIGN KEY (id_agrupe_palavras) REFERENCES agrupe_palavras(id)
+    
+);
+    
+
+
+
+
+
+
+
+
+
+
+#STORED PROCEDURES
+    DELIMITER $ 
+    CREATE PROCEDURE pegarIdProfessor(IN nomeUser varchar(100), OUT idProfessor int)
+	BEGIN
+		SET idprofessor = (SELECT id FROM professor WHERE usuario = nomeUser);
+    END $
+    DELIMITER ;
+    
+     DELIMITER $ 
+    CREATE PROCEDURE pegarIdAluno(IN nomeUser varchar(100), OUT idAluno int)
+	BEGIN
+		SET idAluno = (SELECT id FROM aluno WHERE usuario = nomeUser);
+	END $
+    DELIMITER ;
+    
+    # TESTE DE STORED PROCEDURE pegarIdProfessor e pegarIdAluno
+    call pegarIdProfessor("teste1", @idProfessor);
+    SELECT @idProfessor;
+    
+    CALL pegarIdAluno("FOI MLK", @idAluno);
+    SELECT @idAluno;
+    
+    
+#FIM DE STORED PROCEDURES
+  
+#TRIGGER'S
+ DELIMITER $
+	CREATE TRIGGER tr_excluirAcertePalavra BEFORE DELETE ON acerte_palavra
+	FOR EACH ROW
+    BEGIN 
+		DELETE FROM acerte_palavra_questoes WHERE id_AcertePalavra = OLD.id;
+    END $
+	DELIMITER ;
+    
+    DELIMITER $
+	CREATE TRIGGER tr_excluirFlashCard BEFORE DELETE ON flash_card 
+	FOR EACH ROW
+    BEGIN 
+		DELETE FROM flash_card_questao WHERE idFlashCard = OLD.id;
+    END $
+	DELIMITER ;
+    
+	DELIMITER $
+	CREATE TRIGGER tr_excluirQuiz BEFORE DELETE ON quiz 
+	FOR EACH ROW
+    BEGIN 
+		DELETE FROM quiz_questao WHERE id_quiz = OLD.id;
+    END $
+	DELIMITER ;
+    
