@@ -1,0 +1,14 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.custom-radio-button .radio {
+    -fx-background-color: #576CD9; /* Cor de fundo do RadioButton */
+    -fx-border-color: #08165B; /* Cor da borda do RadioButton */
+    -fx-border-radius: 70;
+    -fx-border-width: 2;
+    -fx-text-fill: white; /* Cor do texto do RadioButton */
+}
+
+.custom-radio-button .radio:selected {
+    -fx-background-color: #350B64; /* Cor de fundo do RadioButton selecionado */
+   -fx-border-color: #350B64; /* Cor da borda do RadioButton selecionado */
+}

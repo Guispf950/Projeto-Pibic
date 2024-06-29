@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane1" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <children>
+      <BorderPane fx:id="borderPane" prefHeight="864.0" prefWidth="1536.0" style="-fx-background-color: #2A45AD; -fx-border-color: 'D3B4FF';" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <AnchorPane fx:id="anchorPane2" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="680.0" prefWidth="580.0" style="-fx-background-color: #515CE0; -fx-background-radius: 15; -fx-border-width: 5; -fx-border-style: solid; -fx-border-color: #ffbc11; -fx-border-radius: 15;" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <Label fx:id="lblLogin" layoutX="181.0" layoutY="14.0" prefHeight="110.0" prefWidth="211.0" text="Login" textAlignment="CENTER" textFill="WHITE" AnchorPane.topAnchor="14.0">
+                     <font>
+                        <Font name="Segoe UI Black" size="75.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="101.0" fitWidth="184.0" layoutX="209.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imagens/LogoLogin.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="96.0" layoutY="168.0" prefHeight="36.0" prefWidth="270.0" text="Email ou nome de usuário" textFill="WHITE" AnchorPane.leftAnchor="96.0" AnchorPane.topAnchor="168.0">
+                     <font>
+                        <Font name="Segoe UI" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtEmailOuUser" layoutX="80.0" layoutY="213.0" prefHeight="50.0" prefWidth="430.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="51.0">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="96.0" layoutY="293.0" prefHeight="36.0" prefWidth="270.0" text="Senha" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI" size="20.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="txtSenha" layoutX="88.0" layoutY="329.0" prefHeight="50.0" prefWidth="437.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="51.0">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </PasswordField>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="392.4" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="484.4" AnchorPane.topAnchor="208.0">
+                     <image>
+                        <Image url="@../../imagens/userLogin.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="40.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imagens/Lock.png" />
+                     </image>
+                  </ImageView>
+                  <CheckBox fx:id="checkBoxMostrarSenha" layoutX="101.0" layoutY="395.0" mnemonicParsing="false" onAction="#onLblEsqueceuSenhaAction" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <Label layoutX="128.0" layoutY="387.0" prefHeight="36.0" prefWidth="109.0" text="Mostrar senha" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="386.0" layoutY="387.0" prefHeight="36.0" prefWidth="132.0" text="Esqueceu senha?" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="bttnEntrar" layoutX="220.0" layoutY="463.0" mnemonicParsing="false" onAction="#onbttnEntrarAction" prefHeight="52.0" prefWidth="134.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="ENTRAR" textFill="#350b64">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="153.0" layoutY="550.0" prefHeight="36.0" prefWidth="169.0" text="Não possui uma conta?" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblCadastrar" layoutX="323.0" layoutY="550.0" onMouseClicked="#onLblCadastrarAction" prefHeight="36.0" prefWidth="105.0" text="Cadastre aqui" textFill="#ffbc11">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtSenhaVisivel" layoutX="98.0" layoutY="329.0" prefHeight="50.0" prefWidth="437.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="66.0">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

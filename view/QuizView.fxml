@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1536.0" style="-fx-background-color: #08165B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.QuizViewController">
+   <children>
+      <AnchorPane layoutX="31.0" layoutY="26.4" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #576CD9; -fx-background-radius: 15; -fx-border-color: #DEE5FF; -fx-border-radius: 15; -fx-border-width: 4;" AnchorPane.bottomAnchor="34.39999999999998" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="30.59999999999991" AnchorPane.topAnchor="26.4">
+         <children>
+            <ImageView fitHeight="61.0" fitWidth="191.0" layoutX="67.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="67.0" AnchorPane.topAnchor="38.0">
+               <image>
+                  <Image url="@../imagem/LogoBurnoutApp.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="1245.0" layoutY="27.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #08165B; -fx-background-radius: 5; -fx-border-color: #DEE5FF; -fx-border-radius: 5; -fx-border-width: 1;" AnchorPane.rightAnchor="138.0" AnchorPane.topAnchor="25.0" />
+            <Button layoutX="1284.0" layoutY="25.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #08165B; -fx-background-radius: 5; -fx-border-color: #DEE5FF; -fx-border-radius: 5; -fx-border-width: 1;" AnchorPane.rightAnchor="84.0" AnchorPane.topAnchor="25.0" />
+            <Button layoutX="1375.0" layoutY="25.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #08165B; -fx-background-radius: 5; -fx-border-color: #DEE5FF; -fx-border-radius: 5; -fx-border-width: 1;" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="25.0" />
+            <ImageView fx:id="finalizarJogo" fitHeight="27.0" fitWidth="29.0" layoutX="1299.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="742.4363639831544" AnchorPane.leftAnchor="1291.0" AnchorPane.rightAnchor="147.19999999999982" AnchorPane.topAnchor="34.0">
+               <image>
+                  <Image url="@../imagem/Group%20112.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="musicaJogo" layoutX="1344.8" layoutY="43.2" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="731.0" AnchorPane.leftAnchor="1341.0" AnchorPane.rightAnchor="95.0">
+               <image>
+                  <Image url="@../imagem/volume-2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="sair" fitHeight="27.0" fitWidth="29.0" layoutX="1406.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="738.2" AnchorPane.leftAnchor="1402.0" AnchorPane.rightAnchor="42.19999999999982" AnchorPane.topAnchor="35.0">
+               <image>
+                  <Image url="@../imagem/Group%20101.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="140.8" layoutY="132.8" prefHeight="630.0" prefWidth="1194.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-color: #E4E3FF; -fx-border-radius: 15; -fx-border-width: 3;" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="113.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="129.0">
+               <children>
+                  <AnchorPane layoutX="24.0" layoutY="32.0" prefHeight="126.0" prefWidth="1190.0" style="-fx-background-color: #08165B; -fx-background-radius: 10; -fx-border-color: #FFF; -fx-border-radius: 10; -fx-border-width: 2;" AnchorPane.bottomAnchor="440.0000000000001" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="18.399999999999864" AnchorPane.topAnchor="28.800000000000097">
+                     <children>
+                        <Label fx:id="lblPergunta" alignment="TOP_LEFT" layoutX="65.0" layoutY="13.0" prefHeight="135.0" prefWidth="1116.0" textAlignment="CENTER" textFill="#ffbc11" wrapText="true">
+                           <font>
+                              <Font name="Monospaced Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblNumero" alignment="CENTER" layoutX="8.0" layoutY="2.0" prefHeight="55.0" prefWidth="53.0" text="1" textFill="#ffbc11">
+                           <font>
+                              <Font name="Monospaced Bold" size="35.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="730.4000000000001" layoutY="282.4" prefHeight="281.0" prefWidth="440.0" style="-fx-background-color: #08165B; -fx-background-radius: 10; -fx-border-color: #FFF; -fx-border-radius: 10; -fx-border-width: 2;" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="727.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="279.0">
+                     <children>
+                        <Label layoutX="130.0" layoutY="226.0" prefHeight="31.0" prefWidth="109.0" text="Questão" textFill="#ffbc11">
+                           <font>
+                              <Font name="Monospaced Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblQuestao" layoutX="240.0" layoutY="225.0" prefHeight="31.0" prefWidth="82.0" text="01/10" textFill="#ffbc11">
+                           <font>
+                              <Font name="Monospaced Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutX="97.0" layoutY="59.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="238.0" style="-fx-background-color: #ffbc11; -fx-background-radius: 15; -fx-border-width: 3; -fx-border-style: solid; -fx-border-color: #BE8C0D; -fx-border-radius: 15;">
+                           <children>
+                              <ImageView fx:id="pular" fitHeight="150.0" fitWidth="178.0" layoutX="42.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagem/curved%20blue%20arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <Label fx:id="pulos" layoutX="161.0" layoutY="14.0" prefHeight="31.0" prefWidth="135.0" text="Pulos: 3" textFill="#9eadff">
+                           <font>
+                              <Font name="Monospaced Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+                  <Button layoutX="76.0" layoutY="219.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="581.0" style="-fx-background-color: #08165B; -fx-background-radius: 10; -fx-border-color: white; -fx-border-radius: 10; -fx-border-width: 2;" wrapText="true" AnchorPane.bottomAnchor="325.8000000000002" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="574.1999999999999" AnchorPane.topAnchor="217.0">
+                     <font>
+                        <Font name="Monospaced Bold" size="25.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="76.0" layoutY="313.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="582.0" style="-fx-background-color: #08165B; -fx-background-radius: 10; -fx-border-color: white; -fx-border-radius: 10; -fx-border-width: 2;" AnchorPane.bottomAnchor="232.80000000000015" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="574.1999999999999" AnchorPane.topAnchor="311.0" />
+                  <Button layoutX="76.0" layoutY="406.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="582.0" style="-fx-background-color: #08165B; -fx-background-radius: 10; -fx-border-color: white; -fx-border-radius: 10; -fx-border-width: 2;" AnchorPane.bottomAnchor="143.0000000000001" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="574.6" AnchorPane.topAnchor="402.4" />
+                  <Button layoutX="76.0" layoutY="498.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="582.0" style="-fx-background-color: #08165B; -fx-background-radius: 10; -fx-border-color: white; -fx-border-radius: 10; -fx-border-width: 2;" AnchorPane.bottomAnchor="51.20000000000013" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="573.4" AnchorPane.topAnchor="492.4000000000001" />
+                  <Label alignment="CENTER" layoutX="22.0" layoutY="221.0" prefHeight="55.0" prefWidth="53.0" text="A" textFill="#08165b">
+                     <font>
+                        <Font name="Monospaced Bold" size="55.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="17.0" layoutY="218.0" prefHeight="67.0" prefWidth="56.0" text="A" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Bold" size="55.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="21.0" layoutY="318.0" prefHeight="55.0" prefWidth="53.0" text="B" textFill="#08165b">
+                     <font>
+                        <Font name="Monospaced Bold" size="55.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="16.0" layoutY="315.0" prefHeight="55.0" prefWidth="53.0" text="B" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Bold" size="55.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="21.0" layoutY="411.0" prefHeight="55.0" prefWidth="53.0" text="C" textFill="#08165b">
+                     <font>
+                        <Font name="Monospaced Bold" size="55.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="16.0" layoutY="408.0" prefHeight="55.0" prefWidth="53.0" text="C" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Bold" size="55.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="26.0" layoutY="503.0" prefHeight="55.0" prefWidth="53.0" text="D" textFill="#08165b">
+                     <font>
+                        <Font name="Monospaced Bold" size="55.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="21.0" layoutY="500.0" prefHeight="55.0" prefWidth="53.0" text="D" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Bold" size="55.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblAlternativaA" alignment="CENTER" layoutX="84.0" layoutY="222.0" prefHeight="67.0" prefWidth="568.0" textAlignment="CENTER" textFill="#ffbc11" wrapText="true" AnchorPane.bottomAnchor="332.8000000000001" AnchorPane.leftAnchor="80.79999999999995" AnchorPane.rightAnchor="584.0" AnchorPane.topAnchor="222.0">
+                     <font>
+                        <Font name="Monospaced Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblAlternativaB" alignment="CENTER" layoutX="83.0" layoutY="316.0" prefHeight="67.0" prefWidth="568.0" textAlignment="CENTER" textFill="#ffbc11" wrapText="true" AnchorPane.bottomAnchor="239.20000000000016" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="581.5999999999999" AnchorPane.topAnchor="316.0">
+                     <font>
+                        <Font name="Monospaced Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblAlternativaC" alignment="CENTER" layoutX="93.60000000000001" layoutY="417.59999999999997" prefHeight="64.0" prefWidth="559.0" textAlignment="CENTER" textFill="#ffbc11" wrapText="true" AnchorPane.bottomAnchor="148.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="581.0" AnchorPane.topAnchor="407.0">
+                     <font>
+                        <Font name="Monospaced Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblAlternativaD" alignment="CENTER" layoutX="84.0" layoutY="504.0" prefHeight="67.0" prefWidth="568.0" textAlignment="CENTER" textFill="#ffbc11" wrapText="true" AnchorPane.bottomAnchor="54.600000000000136" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="581.0" AnchorPane.topAnchor="501.0">
+                     <font>
+                        <Font name="Monospaced Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTituloQuiz" alignment="TOP_CENTER" layoutX="730.0" layoutY="207.0" prefHeight="67.0" prefWidth="433.0" textAlignment="CENTER" textFill="#08165b" wrapText="true">
+                     <font>
+                        <Font name="Monospaced Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="538.0" layoutY="42.0" prefHeight="94.0" prefWidth="390.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15px 15px 0px 0px; -fx-border-color: #E4E3FF; -fx-border-radius: 15px 15px 0px 0px; -fx-border-width: 3 3 0 3;">
+               <children>
+                  <ImageView fitHeight="169.0" fitWidth="200.0" layoutX="95.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagem/QUIZ%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

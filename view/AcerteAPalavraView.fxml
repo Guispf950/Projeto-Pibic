@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1536.0" style="-fx-background-color: #08165B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AcerteAPalavraController">
+   <children>
+      <AnchorPane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #576CD9; -fx-background-radius: 15; -fx-border-color: #DEE5FF; -fx-border-radius: 15; -fx-border-width: 4;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="279.0" layoutX="42.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="38.0">
+               <image>
+                  <Image url="@../imagem/LogoBurnoutApp.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="1245.0" layoutY="27.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #08165B; -fx-background-radius: 5; -fx-border-color: #DEE5FF; -fx-border-radius: 5; -fx-border-width: 1;" AnchorPane.rightAnchor="138.0" AnchorPane.topAnchor="25.0" />
+            <Button layoutX="1284.0" layoutY="25.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #08165B; -fx-background-radius: 5; -fx-border-color: #DEE5FF; -fx-border-radius: 5; -fx-border-width: 1;" AnchorPane.rightAnchor="84.0" AnchorPane.topAnchor="25.0" />
+            <Button layoutX="1375.0" layoutY="25.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #08165B; -fx-background-radius: 5; -fx-border-color: #DEE5FF; -fx-border-radius: 5; -fx-border-width: 1;" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="25.0" />
+            <ImageView fx:id="finalizarJogo" fitHeight="27.0" fitWidth="29.0" layoutX="1299.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="742.4363639831544" AnchorPane.leftAnchor="1291.0" AnchorPane.rightAnchor="147.19999999999982" AnchorPane.topAnchor="34.0">
+               <image>
+                  <Image url="@../imagem/Group%20112.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="46.0" layoutX="1347.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagem/volume-2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="sairJogo" fitHeight="27.0" fitWidth="29.0" layoutX="1406.0" layoutY="38.0" onMouseClicked="#onSairAcertePalavra" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="738.2" AnchorPane.leftAnchor="1402.0" AnchorPane.rightAnchor="42.19999999999982" AnchorPane.topAnchor="35.0">
+               <image>
+                  <Image url="@../imagem/Group%20101.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="380.0" layoutY="37.0" prefHeight="104.0" prefWidth="715.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15px 15px 0px 0px; -fx-border-color: #E4E3FF; -fx-border-radius: 15px 15px 0px 0px; -fx-border-width: 3;" AnchorPane.topAnchor="43.0">
+               <children>
+                  <ImageView fitHeight="116.0" fitWidth="779.0" layoutX="4.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="3.200000000000003" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.199999999999932" AnchorPane.topAnchor="12.0">
+                     <image>
+                        <Image url="@../imagem/Acerte%20a%20Palavra.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="120.0" layoutY="141.0" prefHeight="154.0" prefWidth="1270.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-color: #E4E3FF; -fx-border-radius: 14; -fx-border-width: 3;" AnchorPane.topAnchor="141.0">
+               <children>
+                  <AnchorPane layoutX="263.0" layoutY="-10.0" prefHeight="14.0" prefWidth="787.0" style="-fx-background-color: #9EADFF;" />
+                  <AnchorPane layoutX="13.0" layoutY="14.0" prefHeight="126.0" prefWidth="1242.0" style="-fx-background-color: #08165B; -fx-background-radius: 10; -fx-border-color: #FFF; -fx-border-radius: 10; -fx-border-width: 2;">
+                     <children>
+                        <ImageView fitHeight="26.0" fitWidth="89.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1136.6000000000001" AnchorPane.topAnchor="14.0">
+                           <image>
+                              <Image url="@../../imagens/DICA%20_%20(1).png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lblDica" alignment="CENTER" layoutX="117.0" layoutY="13.0" prefHeight="99.0" prefWidth="1038.0" textAlignment="CENTER" textFill="#ffbc11" wrapText="true">
+                           <font>
+                              <Font name="Monospaced Bold" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <GridPane fx:id="grid1" hgap="5.0" layoutX="138.0" layoutY="314.0" prefHeight="460.0" prefWidth="569.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-color: #DEE5FF; -fx-border-radius: 15; -fx-border-width: 3;" vgap="5.0" AnchorPane.bottomAnchor="29.200000000000045" AnchorPane.topAnchor="314.0">
+               <padding>
+                  <Insets bottom="8.0" left="5.0" right="8.0" top="8.0" />
+               </padding>
+            </GridPane>
+            <GridPane fx:id="grid2" hgap="5.0" layoutX="795.0" layoutY="314.0" prefHeight="460.0" prefWidth="569.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-color: #DEE5FF; -fx-border-radius: 15; -fx-border-width: 3;" vgap="5.0" AnchorPane.bottomAnchor="26.800000000000068" AnchorPane.topAnchor="314.0">
+               <padding>
+                  <Insets bottom="8.0" left="5.0" right="8.0" top="8.0" />
+               </padding>
+            </GridPane>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

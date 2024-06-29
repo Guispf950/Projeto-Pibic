@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1536.0" style="-fx-background-color: #08165B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FlashCardController">
+   <children>
+      <AnchorPane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #576CD9; -fx-background-radius: 15; -fx-border-color: #ffbc11; -fx-border-radius: 15; -fx-border-width: 4;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="279.0" layoutX="26.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="37.0">
+               <image>
+                  <Image url="@../../imagens/Group%20113.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="1245.0" layoutY="27.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #08165B; -fx-background-radius: 5; -fx-border-color: #DEE5FF; -fx-border-radius: 5; -fx-border-width: 1;" AnchorPane.rightAnchor="138.0" AnchorPane.topAnchor="25.0" />
+            <Button layoutX="1284.0" layoutY="25.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #08165B; -fx-background-radius: 5; -fx-border-color: #DEE5FF; -fx-border-radius: 5; -fx-border-width: 1;" AnchorPane.rightAnchor="84.0" AnchorPane.topAnchor="25.0" />
+            <Button layoutX="1375.0" layoutY="25.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #08165B; -fx-background-radius: 5; -fx-border-color: #DEE5FF; -fx-border-radius: 5; -fx-border-width: 1;" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="25.0" />
+            <ImageView fx:id="finalizarJogo" fitHeight="27.0" fitWidth="29.0" layoutX="1299.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="742.4363639831544" AnchorPane.leftAnchor="1291.0" AnchorPane.rightAnchor="147.19999999999982" AnchorPane.topAnchor="34.0">
+               <image>
+                  <Image url="@../imagem/Group%20112.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="musicaJogo" fitHeight="35.0" fitWidth="46.0" layoutX="1347.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagem/volume-2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="sair" fitHeight="27.0" fitWidth="29.0" layoutX="1406.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="738.2" AnchorPane.leftAnchor="1402.0" AnchorPane.rightAnchor="42.19999999999982" AnchorPane.topAnchor="35.0">
+               <image>
+                  <Image url="@../imagem/Group%20101.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="281.0" layoutY="52.0" prefHeight="124.0" prefWidth="722.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-color: #ffbc11; -fx-border-radius: 15; -fx-border-width: 3;">
+               <children>
+                  <ImageView fitHeight="116.0" fitWidth="779.0" layoutX="99.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.599999999999994" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="99.9999877929688" AnchorPane.topAnchor="11.0">
+                     <image>
+                        <Image url="@../imagem/flash%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="88.0" layoutY="206.0" prefHeight="558.0" prefWidth="755.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-color: #ffbc11; -fx-border-radius: 14; -fx-border-width: 3;" AnchorPane.topAnchor="206.0">
+               <children>
+                  <Label fx:id="lblPergunta" alignment="CENTER" layoutX="86.0" layoutY="30.0" prefHeight="396.0" prefWidth="576.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #576CD9; -fx-border-radius: 15; -fx-border-width: 2;" textAlignment="CENTER" textFill="#403786" wrapText="true">
+                     <font>
+                        <Font name="Monospaced Bold" size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <Button layoutX="186.0" layoutY="464.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="133.0" style="-fx-background-color: #08165B; -fx-background-radius: 10; -fx-border-radius: 9; -fx-border-width: 2;" textFill="#08165b">
+                     <font>
+                        <Font name="Monospaced Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="bttnVerdadeiro" layoutX="180.0" layoutY="456.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="133.0" style="-fx-background-color: #ffbc11; -fx-background-radius: 10; -fx-border-color: #BE8C0D; -fx-border-radius: 9; -fx-border-width: 2;" text="VERDADEIRO" textFill="#08165b">
+                     <font>
+                        <Font name="Monospaced Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="422.0" layoutY="461.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="133.0" style="-fx-background-color: #08165B; -fx-background-radius: 10; -fx-border-radius: 9; -fx-border-width: 2;" textFill="#08165b">
+                     <font>
+                        <Font name="Monospaced Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="bttnFalso" layoutX="416.0" layoutY="453.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="133.0" style="-fx-background-color: #ffbc11; -fx-background-radius: 10; -fx-border-color: #BE8C0D; -fx-border-radius: 9; -fx-border-width: 2;" text="FALSO" textFill="#08165b">
+                     <font>
+                        <Font name="Monospaced Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="680.0" layoutY="30.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 70; -fx-background-color: #576CD9; -fx-border-style: solid; -fx-border-color: #ffbc11; -fx-border-radius: 70; -fx-border-width: 2;" />
+                  <ImageView fx:id="proximaQuestao" fitHeight="30.0" fitWidth="30.0" layoutX="690.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagem/arrow_right_alt_FILL0_wght400_GRAD0_opsz48%204.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="917.0" layoutY="210.0" prefHeight="558.0" prefWidth="480.0" style="-fx-background-color: #9EADFF; -fx-background-radius: 15; -fx-border-color: #ffbc11; -fx-border-radius: 14; -fx-border-width: 3;">
+               <children>
+                  <Label fx:id="lblCard" alignment="CENTER" layoutX="7.0" layoutY="63.0" prefHeight="55.0" prefWidth="466.0" text="Card 0/0" textAlignment="CENTER" textFill="#08165b" wrapText="true">
+                     <font>
+                        <Font name="Monospaced Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNomeDoJogo" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="55.0" prefWidth="466.0" text="nome do jogo" textAlignment="CENTER" textFill="#08165b" wrapText="true">
+                     <font>
+                        <Font name="Monospaced Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="256.0" fitWidth="227.0" layoutX="141.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagem/LogoBurnout.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
