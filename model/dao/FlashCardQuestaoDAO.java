@@ -1,6 +1,6 @@
 package model.dao;
 
-import java.io.IOException;
+import java.io.IOException; 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 import application.Main;
 import controller.FlashCardController;
-import controller.FlashCardCriarController;
+ 
 import controller.PontuacaoController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,43 +23,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
 import model.vo.FlashCardQuestaoVO;
-import view.CriarFlashCar;
-import view.FlashCardAluno;
-import view.FlashCardCriar;
-import view.TelaDeMenuAluno;
-import view.TelaQuizAlterar;
+ 
 
 public class FlashCardQuestaoDAO {
 
-	public void adcionarQuestao(FlashCardQuestaoVO frase, FlashCardCriar tela) {
-		String sql1 = "INSERT INTO flash_card_questao (idFlashCard, frase, condicao, explicacao) VALUES (?, ?, ?, ?);";
-
-		PreparedStatement pStatement1 = null;
-
-		Connection conn = null;
-
-		try {
-			conn = new Conexao().getConnection();
-			pStatement1 = conn.prepareStatement(sql1);
-			pStatement1.setString(1, frase.getIdFlashCard());
-			pStatement1.setString(2, frase.getFrase());
-			pStatement1.setInt(3, frase.getCondicao());
-			pStatement1.setString(4, frase.getExplicacao());
-			int linhasAfetadas = pStatement1.executeUpdate();
-			if (linhasAfetadas != 0) {
-				JOptionPane.showMessageDialog(null, "Pergunta Adcionada");
-			 tela.getQuestaoProfInserirjEditorPane1().setText("");
-			 tela.getBreveExplicacaojEditorPane2().setText("");
-			 tela.getFalsojCheckBox1().setSelected(false);
-			 tela.getVerdadeirojCheckBox2().setSelected(false);
-			
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-	}
+	 
 
 	public List<FlashCardQuestaoVO> consultarQuestoes(String id_flashCard) {
 		String sql1 = "SELECT * FROM flash_card_questao WHERE idFlashCard = (?);";
@@ -160,29 +128,7 @@ public class FlashCardQuestaoDAO {
 
 	}
 
-	public void excluirQuestao(int id, TelaQuizAlterar tela) { // nao tenho tela de alterar questoes do flash card, esse
-																// parametro de tela sera substituido pela tela
-		String sql1 = "DELETE FROM flash_card_questao WHERE id = (?); ";
-		PreparedStatement pStatement1 = null;
-		Connection conn = null;
-
-		try {
-			conn = new Conexao().getConnection();
-			pStatement1 = conn.prepareStatement(sql1);
-			pStatement1.setInt(1, id);
-			int linhasAfetadas = pStatement1.executeUpdate(); // executeUpdate() usado para operações de UPDATE, DELETE,
-																// INSERT
-
-			if (linhasAfetadas > 0) {
-				JOptionPane.showMessageDialog(null, "Questão Excluída");
-			} else
-				JOptionPane.showMessageDialog(null, "Esse id não existe");
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
+ 
 	public void visualizarFlashCardBotaoContinuar(String idFlashCard, int numeroQuestao, int acertos) {
 		String sql1 = "SELECT COUNT(*) as total FROM flash_card_questao WHERE idFlashCard = ?";
 		String sql2 = "SELECT frase, condicao, explicacao FROM flash_card_questao WHERE idFlashCard = ? LIMIT 1 OFFSET ?; ";

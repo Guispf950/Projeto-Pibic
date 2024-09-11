@@ -1,6 +1,6 @@
 package controller;
 
-import java.awt.Desktop;
+import java.awt.Desktop; 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -18,8 +18,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+import model.bo.QuizQuestaoBO;
+import servicos.Servicos;
  
-import view.CriarFlashCar;
 
 public class MenuUsuarioController implements Initializable {
 
@@ -137,7 +138,7 @@ public class MenuUsuarioController implements Initializable {
 	@FXML
 	public void onBttnQuizAction() {			
 			String nomeUser = lblUser.getText();
-			String idQuiz = "QUIZ1"; // INSERIR O CODIGO DO QUIZ AQUI
+			String idQuiz = "QUIZ1"; // INSERIR O CODIGO DO JOGO AQUI
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/QuizView.fxml"));
 			Parent parent = loader.load();	
@@ -145,7 +146,7 @@ public class MenuUsuarioController implements Initializable {
 			
 
 			Scene scene = new Scene(parent);
-			new QuizQuestaoController().visualizarQuestaoTelaMenu(idQuiz, nomeUser, scene);
+			new QuizQuestaoBO().visualizarQuestaoTelaMenu(idQuiz, nomeUser, scene);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -155,22 +156,17 @@ public class MenuUsuarioController implements Initializable {
 
 	@FXML
 	public void onBttnOutrosAction() {
-		try {
-		       Desktop.getDesktop().browse(new URI("https://poki.com/br?campaign=20614019420&adgroup=155263514338&extensionid=&targetid=kwd-434269847&location=9101696&matchtype=e&network=g&device=c&devicemodel=&creative=675877754346&keyword=jogos%20online&placement=&target=&gad_source=1&gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHKv4SJAjrEyKFK_Mj9VnSEY4hgwzI8vlJr4kYLEJuPU3NReq7TM5X0aAuw2EALw_wcB"));
-		    }
-		    catch (URISyntaxException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}		 
+		 String linkForms = "https://forms.gle/QpZABsBGxx4nrHWu7"; //adcionar o link do formulario
+		 Servicos.chamarLink(linkForms);
+		 String link = "https://poki.com/br?campaign=20614019420&adgroup=155263514338&extensionid=&targetid=kwd-434269847&location=9101696&matchtype=e&network=g&device=c&devicemodel=&creative=675877754346&keyword=jogos%20online&placement=&target=&gad_source=1&gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHKv4SJAjrEyKFK_Mj9VnSEY4hgwzI8vlJr4kYLEJuPU3NReq7TM5X0aAuw2EALw_wcB";
+		 Servicos.chamarLink(link);
+		
 	}
  
 	@FXML
 	public void onbttnAcerteAPalavraAction() {
 		String nomeUser = lblUser.getText();
-		String idQuiz = "ACPL1"; // INSERIR O CODIGO DO QUIZ AQUI
+		String idQuiz = "ACPL1"; // INSERIR O CODIGO DO JOGO AQUI
 	try {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/QuizView.fxml"));
 		Parent parent = loader.load();	
@@ -178,7 +174,7 @@ public class MenuUsuarioController implements Initializable {
 		
 
 		Scene scene = new Scene(parent);
-		new QuizQuestaoController().visualizarQuestaoTelaMenu(idQuiz, nomeUser, scene);
+		new QuizQuestaoBO().visualizarQuestaoTelaMenu(idQuiz, nomeUser, scene); //primeiro começa buscando na tabela quiz, depois vai para flash card e por ultimo acerte a palavra
 		 
 	} catch (IOException e) {
 		e.printStackTrace();
@@ -189,7 +185,7 @@ public class MenuUsuarioController implements Initializable {
 	@FXML
 	public void onBttnFlashCardAction() {
 		String nomeUser = lblUser.getText();
-		String idQuiz = "FLASH1"; // INSERIR O CODIGO DO QUIZ AQUI
+		String idQuiz = "FLASH1"; // INSERIR O CODIGO DO JOGO AQUI
 	try {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/QuizView.fxml"));
 		Parent parent = loader.load();	
@@ -197,7 +193,7 @@ public class MenuUsuarioController implements Initializable {
 		
 
 		Scene scene = new Scene(parent);
-		new QuizQuestaoController().visualizarQuestaoTelaMenu(idQuiz, nomeUser, scene);
+		new QuizQuestaoBO().visualizarQuestaoTelaMenu(idQuiz, nomeUser, scene); //primeiro começa buscando na tabela quiz, depois busca na tabela flash card e por ultimo acerte a palavra
 		
 	} catch (IOException e) {
 		e.printStackTrace();

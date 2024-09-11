@@ -55,6 +55,7 @@ public class QuizViewController implements Initializable {
 	private Label lblQuestao;
 	@FXML
 	private Label lblNumero;
+
 	private static int questao = 1;
 	QuizQuestaoVO questao1;
 	private boolean init = false;
@@ -73,22 +74,15 @@ public class QuizViewController implements Initializable {
 					JOptionPane.showMessageDialog(null, "O quiz ainda não acabou");
 				} else {
 					JOptionPane.showMessageDialog(null, "O quiz acabou, sua pontuação foi: " + acertos);
-
-					try {
-
-						FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuAlunoView.fxml"));
-						Parent parent = loader.load();
-						MenuUsuarioController quizAlterarQuestao = loader.getController();
-
-						quizAlterarQuestao.getLblUser().setText(userAluno);
-						quizAlterarQuestao.initialize(null, null);
-
-						Scene scene = new Scene(parent);
-						Main.getStage().setScene(scene);
-					} catch (IOException e) {
-						e.printStackTrace();
+					Servicos.chamarTela("/view/MenuUsuarioView.fxml", userAluno, MenuUsuarioController.class);
+					Object[] options = { "Sim", "Não" };
+					int opcao = JOptionPane.showOptionDialog(null, "Quer ser direcionado ao Formulario?",
+							"Google Forms", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,
+							options[0]);
+					if (opcao == 0) {
+						String link = "https://forms.gle/QpZABsBGxx4nrHWu7";
+						Servicos.chamarLink(link);
 					}
-
 				}
 			});
 
@@ -102,7 +96,6 @@ public class QuizViewController implements Initializable {
 					musicaJogo.setImage(image1);
 				}
 
-				// NAO CONSEGUI
 			});
 
 			sair.setOnMouseClicked(event -> {
@@ -114,6 +107,7 @@ public class QuizViewController implements Initializable {
 
 				if (pulos1 > 0) {
 					if (showConfirmationDialog("Você tem certeza que deseja pular essa questao?")) {
+						numeroQuestao++;
 						proximaQuestao();
 						pulos1--;
 						pulos.setText("Pulos: " + Integer.toString(pulos1));
@@ -131,8 +125,7 @@ public class QuizViewController implements Initializable {
 				resposta = lblAlternativaA.getText();
 
 				String id_quiz = idJogo;
-				QuizQuestaoController QuizQuestaoController = new QuizQuestaoController();
-				boolean acertou = QuizQuestaoController.verificarResposta(resposta, id_quiz, acertos, numeroQuestao);
+				boolean acertou = new QuizQuestaoBO().verificarResposta(resposta, id_quiz, acertos, numeroQuestao);
 
 				if (acertou) {
 					acertos++;
@@ -153,8 +146,8 @@ public class QuizViewController implements Initializable {
 				resposta = lblAlternativaB.getText();
 
 				String id_quiz = idJogo;
-				QuizQuestaoController QuizQuestaoController = new QuizQuestaoController();
-				boolean acertou = QuizQuestaoController.verificarResposta(resposta, id_quiz, acertos, numeroQuestao);
+
+				boolean acertou = new QuizQuestaoBO().verificarResposta(resposta, id_quiz, acertos, numeroQuestao);
 				if (acertou) {
 					acertos++;
 				}
@@ -171,8 +164,7 @@ public class QuizViewController implements Initializable {
 				resposta = lblAlternativaC.getText();
 
 				String id_quiz = idJogo;
-				QuizQuestaoController QuizQuestaoController = new QuizQuestaoController();
-				boolean acertou = QuizQuestaoController.verificarResposta(resposta, id_quiz, acertos, numeroQuestao);
+				boolean acertou = new QuizQuestaoBO().verificarResposta(resposta, id_quiz, acertos, numeroQuestao);
 				if (acertou) {
 					acertos++;
 				}
@@ -186,8 +178,7 @@ public class QuizViewController implements Initializable {
 				resposta = lblAlternativaD.getText();
 
 				String id_quiz = idJogo;
-				QuizQuestaoController QuizQuestaoController = new QuizQuestaoController();
-				boolean acertou = QuizQuestaoController.verificarResposta(resposta, id_quiz, acertos, numeroQuestao);
+				boolean acertou = new QuizQuestaoBO().verificarResposta(resposta, id_quiz, acertos, numeroQuestao);
 				if (acertou) {
 					acertos++;
 				}
@@ -222,7 +213,6 @@ public class QuizViewController implements Initializable {
 	}
 
 	public void proximaQuestao() {
-		System.out.println(numeroQuestao);
 		List<QuizQuestaoVO> questoes = new QuizQuestaoDAO().consultarQuestoes(idJogo);
 		if (numeroQuestao < questoes.size() + 1) {
 
@@ -235,9 +225,17 @@ public class QuizViewController implements Initializable {
 			lblQuestao.setText(Integer.toString(numeroQuestao) + "/" + Integer.toString(questoes.size()));
 		} else {
 			JOptionPane.showMessageDialog(null, "O quiz acabou, sua pontuação foi: " + acertos);
-
 			Servicos.chamarTela("/view/MenuUsuarioView.fxml", userAluno, MenuUsuarioController.class);
 
+			Object[] options = { "Sim", "Não" };
+			int opcao = JOptionPane.showOptionDialog(null, "Quer ser direcionado ao Formulario?", "Google Forms",
+					JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+			// se opcao for igual a 0 o usuario clicou no botão sim; se for igual a 1 clicou
+			// em nao; se somente fechou o aviso é -1
+			if (opcao == 0) {
+				String link = "https://forms.gle/QpZABsBGxx4nrHWu7"; // adcionar o link do formulario
+				Servicos.chamarLink(link);
+			}
 		}
 	}
 

@@ -1,11 +1,13 @@
 package servicos;
 
+import java.awt.Desktop; 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import application.Main;
 import controller.MenuUsuarioController;
 import controller.MenuUsuarioController;
-import controller.QuizCriarController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -43,6 +45,19 @@ public class Servicos {
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }
+	}
+	
+	public static void chamarLink(String link) {
+		try {
+		       Desktop.getDesktop().browse(new URI(link));
+		    }
+		    catch (URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}		 
 	}
 }
 /*	@FXML

@@ -1,6 +1,6 @@
 package controller;
 
-import java.io.IOException;
+import java.io.IOException; 
 import java.net.URL;
 import java.text.ParseException;
 import java.util.Date;
@@ -24,8 +24,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.bo.UsuarioBO;
 import model.bo.LoginBO;
-import model.bo.ProfessorBO;
-import view.TelaCadastro;
+ 
 
 public class CadastroController implements Initializable {
 

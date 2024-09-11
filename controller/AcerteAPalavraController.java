@@ -25,6 +25,7 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.util.converter.CharacterStringConverter;
+import model.bo.AcertePalavraQuestaoBO;
 import model.dao.AcertePalavraQuestaoDAO;
 import model.dao.FlashCardQuestaoDAO;
 import model.vo.AcertePalavraQuestaoVO;
@@ -246,7 +247,8 @@ public class AcerteAPalavraController implements Initializable {
 	@FXML
 	private void onFinalizarAcertePalavra() {
 		List<AcertePalavraQuestaoVO> questoes = new ArrayList<>();
-		questoes = new AcertePalavraQuestaoController().consultarQuestoesId(id_jogo);
+		questoes = new AcertePalavraQuestaoBO().consultarQuestoesId(id_jogo);
+	 
 		String palavra = "";
 
 		for (int i = 0; i < questoes.size() && i < salvarTextFields.length; i++) {
@@ -254,7 +256,10 @@ public class AcerteAPalavraController implements Initializable {
 			for (int j = 0; j < questoes.get(i).getPalavra().length(); j++) {
 				palavra += salvarTextFields[i][j].getText().toUpperCase();
 			}
-			boolean acertou = new AcertePalavraQuestaoDAO().verificarResposta(palavra, id_jogo, i);
+			
+			 
+			boolean acertou = new AcertePalavraQuestaoBO().verificarResposta(palavra, id_jogo, i);
+			
 			if (acertou) {
 				acertos++;
 				for (int l = 0; l < questoes.get(i).getPalavra().length(); l++) {
@@ -271,8 +276,10 @@ public class AcerteAPalavraController implements Initializable {
 				 
 				palavra += salvarTextFields1[i][j].getText().toUpperCase();
 			}
-
-			boolean acertou = new AcertePalavraQuestaoDAO().verificarResposta(palavra, id_jogo, i + 5); // verificando as ultimas 5 palavras
+			
+			// verificando as ultimas 5 palavras
+			boolean acertou = new AcertePalavraQuestaoBO().verificarResposta(palavra, id_jogo, i + 5);
+			
 			
 			if (acertou) {
 				acertos++;
@@ -289,6 +296,13 @@ public class AcerteAPalavraController implements Initializable {
 		  Platform.runLater(() -> { //usado para dar um delay na aplicaçao(para dar tempo dos quadrados ficarem verdes)
 			  JOptionPane.showMessageDialog(null, "Você acertou "+acertos+" Palavras", "Acertos", JOptionPane.INFORMATION_MESSAGE);
 			  Servicos.chamarTela("/view/MenuUsuarioView.fxml", userAluno, MenuUsuarioController.class);
+			  Object[] options = { "Sim", "Não" };
+				int opcao = JOptionPane.showOptionDialog(null, "Quer ser direcionado ao Formulario?", "Google Forms", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+				//se opcao for igual a 0 o usuario clicou no botão sim; se for igual a 1 clicou em nao; se somente fechou o aviso é -1
+				if(opcao==0) {
+					String link = "https://forms.gle/QpZABsBGxx4nrHWu7"; //adcionar o link do formulario
+					Servicos.chamarLink(link);
+				}
 		     
 		    });
 

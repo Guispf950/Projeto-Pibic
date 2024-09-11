@@ -60,8 +60,10 @@ public class LoginController implements Initializable {
 		String senha = null;
 		if (checkBoxMostrarSenha.isSelected()) {
 			senha = txtSenhaVisivel.getText();
+		} else {
+			senha = txtSenha.getText();
 		}
-		senha = txtSenha.getText();
+
 		String nomeUser = txtEmailOuUser.getText();
 		String login = new LoginBO().fazerlogin(nome_email, senha);
 		

@@ -1,6 +1,6 @@
 package model.dao;
 
-import java.io.IOException; 
+import java.io.IOException;  
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,8 +21,6 @@ import javafx.scene.Scene;
 import model.vo.AcertePalavraQuestaoVO;
 import model.vo.AdministradorVO;
  
-import view.TelaQuizAlterar;
-
 public class AcertePalavraQuestaoDAO {
 
 	/*public void adcionarQuestao(AcertePalavraQuestaoVO questao, CriarAcerteAPalavra tela) {
@@ -146,53 +144,7 @@ public class AcertePalavraQuestaoDAO {
 
 	}
 
-	public void excluirQuestao(int id, TelaQuizAlterar tela) { //trocar TelaQuizAlterar pela tela de CRUD da questoes de Acerte Palavra
-		String sql1 = "DELETE FROM acerte_palavra_questoes WHERE id = (?); ";
-		PreparedStatement pStatement1 = null;
-		Connection conn = null;
-
-		try {
-			conn = new Conexao().getConnection();
-			pStatement1 = conn.prepareStatement(sql1);
-			pStatement1.setInt(1, id);
-			int excluir = pStatement1.executeUpdate(); // executeUpdate() usado para operações de UPDATE, DELETE, INSERT
-														// e retorna o numero de linhas afetadas
-
-			if (excluir > 0) {
-				tela.getTxtPergunta().setText("");
-				tela.getTxtAlternativaA().setText("");
-				tela.getTxtAlternativaB().setText("");
-				tela.getTxtAlternativaC().setText("");
-				tela.getTxtAlternativaD().setText("");
-
-				if (tela.getAlternativa1jCheckBox().isSelected()) {
-					tela.getAlternativa2jCheckBox2().setSelected(false);
-					tela.getAlternativa3jCheckBox3().setSelected(false);
-					tela.getjCheckBox4().setSelected(false);
-				}
-				if (tela.getAlternativa2jCheckBox2().isSelected()) {
-					tela.getAlternativa1jCheckBox().setSelected(false);
-					tela.getAlternativa3jCheckBox3().setSelected(false);
-					tela.getjCheckBox4().setSelected(false);
-				}
-				if (tela.getAlternativa3jCheckBox3().isSelected()) {
-					tela.getAlternativa1jCheckBox().setSelected(false);
-					tela.getAlternativa2jCheckBox2().setSelected(false);
-					tela.getjCheckBox4().setSelected(false);
-				}
-				if (tela.getjCheckBox4().isSelected()) {
-					tela.getAlternativa1jCheckBox().setSelected(false);
-					tela.getAlternativa2jCheckBox2().setSelected(false);
-					tela.getAlternativa3jCheckBox3().setSelected(false);
-				}
-				JOptionPane.showMessageDialog(null, "Questão Excluída");
-			} else
-				JOptionPane.showMessageDialog(null, "Esse id não existe");
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+	 
 
 	public void visualizarQuestaoTelaMenu(String id_quiz, String nomeAluno, Scene tela2) {
 		 

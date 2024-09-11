@@ -1,6 +1,6 @@
 package model.dao;
 
-import java.sql.Connection; 
+import java.sql.Connection;  
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,8 +9,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 import model.vo.UsuarioVO;
-import view.TelaCadastro;
-import view.TelaRestaurarSenha;
+ 
 
 public class UsuarioDAO {
 	public boolean cadastrarAluno(UsuarioVO usuario) {
@@ -76,71 +75,7 @@ public class UsuarioDAO {
 
 	}
 
-	public void restaurarSenhaAluno(String nome, String sobrenome, String email, String senha, Date dataNasc,
-			String nomeCachorro, String comidaFav, TelaRestaurarSenha tela) {
-		String sql1 = "SELECT email FROM aluno WHERE nome = ? AND sobrenome = ? AND dataNasc = ? AND comidaFav = ? AND email = ? ;";
-		String sql2 = "UPDATE aluno SET senha = (?) WHERE email = (?);";
-		PreparedStatement pStatement1 = null;
-		PreparedStatement pStatement2 = null;
-
-		Connection conn = null;
-
-		try {
-			conn = new Conexao().getConnection();
-			pStatement1 = conn.prepareStatement(sql1);
-			pStatement1.setString(1, nome);
-			pStatement1.setString(2, sobrenome);
-			java.util.Date utilDate = dataNasc;
-			java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-			pStatement1.setDate(3, sqlDate);
-			pStatement1.setString(4, comidaFav);
-			pStatement1.setString(5, email);
-			ResultSet result = pStatement1.executeQuery();
-			if (result.next()) {
-				boolean condicao = false;
-				// String email_coluna = result.getString("email");
-
-				pStatement2 = conn.prepareStatement(sql2);
-				pStatement2.setString(1, senha);
-				pStatement2.setString(2, email);
-				int i = pStatement2.executeUpdate();
-				condicao = i > 0;
-				System.out.println(condicao);
-				if (condicao) {
-					JOptionPane.showMessageDialog(null, "Senha Restaurada !");
-					tela.dispose();
-
-				} else
-					JOptionPane.showMessageDialog(null, "Dados Incorretos", "Erro na Restauração",
-							JOptionPane.ERROR_MESSAGE);
-			} else
-				new AdministradorDAO().restaurarSenhaAluno(nome, sobrenome, email, senha, dataNasc, nomeCachorro, comidaFav,
-						tela);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-
-			try {
-				if (pStatement1 != null) {
-					pStatement1.close();
-
-				}
-			} catch (SQLException e) {
-
-				System.out.println("Erro ao fechar Statement");
-			}
-			try {
-				if (conn != null) {
-					conn.close();
-				}
-			} catch (Exception e) {
-				System.out.println("Erro ao fechar conexao");
-			}
-
-		}
-
-	}
+ 
 
 	public int pegarIdComNomeUser(String user) {
 		int idAluno = 0;

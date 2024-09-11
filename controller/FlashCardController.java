@@ -137,6 +137,13 @@ public class FlashCardController implements Initializable {
 					} else {
 						showConfirmationDialog("Você Finalizou o Jogou, sua pontuação foi : " + acertos);
 						Servicos.chamarTela("/view/MenuUsuarioView.fxml", userAluno, MenuUsuarioController.class);
+						Object[] options = { "Sim", "Não" };
+						int opcao = JOptionPane.showOptionDialog(null, "Quer ser direcionado ao Formulario?", "Google Forms", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+						//se opcao for igual a 0 o usuario clicou no botão sim; se for igual a 1 clicou em nao; se somente fechou o aviso é -1
+						if(opcao==0) {
+							String link = "https://forms.gle/QpZABsBGxx4nrHWu7"; //adcionar o link do formulario
+							Servicos.chamarLink(link);
+						}
 					}
 
 				}
@@ -144,9 +151,9 @@ public class FlashCardController implements Initializable {
 
 			finalizarJogo.setOnMouseClicked(event -> {
 				if (questao + 1 < numeroQuestao) {
-					JOptionPane.showMessageDialog(null, "O quiz ainda não acabou");
+					JOptionPane.showMessageDialog(null, "O jogo ainda não acabou");
 				} else {
-					JOptionPane.showMessageDialog(null, "O quiz acabou, sua pontuação foi: " + acertos);
+					JOptionPane.showMessageDialog(null, "O jogo acabou, sua pontuação foi: " + acertos);
 
 					try {
 
@@ -278,6 +285,8 @@ public class FlashCardController implements Initializable {
 		this.tempoInicial = tempoInicial;
 	}
 
+	
+	
 	public int getAcertos() {
 		return acertos;
 	}
