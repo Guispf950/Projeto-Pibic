@@ -141,3 +141,22 @@ INSERT INTO flash_card_questao (idFlashCard, frase, condicao, explicacao) VALUES
 ('FLASH1', 'Burnout afeta apenas pessoas em profissões de alta pressão, como médicos e advogados.', 0, 'Burnout pode afetar qualquer pessoa, independentemente da profissão, se estiverem sob constante estresse e pressão no trabalho.');
 
 
+
+CREATE TABLE pontuacao (
+   id int NOT NULL AUTO_INCREMENT,
+   idAluno int NOT NULL,
+   tempoInicial timestamp NOT NULL,
+   tempoFinal timestamp NOT NULL,
+   acertos int NOT NULL,
+   id_quiz char(6) NOT NULL,
+   id_flash_card char(6) NOT NULL,
+   id_acerte_palavra char(6) NOT NULL,
+   vezesJogadas int NOT NULL,
+   PRIMARY KEY (`id`),
+	FOREIGN KEY (idAluno) REFERENCES usuario(id),
+	FOREIGN KEY (id_flash_card) REFERENCES flash_card(id),
+	FOREIGN KEY (id_acerte_palavra) REFERENCES acerte_palavra(id),
+	FOREIGN KEY (id_quiz) REFERENCES quiz(id)
+ );
+
+
