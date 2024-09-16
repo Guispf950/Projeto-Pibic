@@ -64,6 +64,24 @@ INSERT INTO quiz_questao (id_quiz, pergunta, alternativaA, alternativaB, alterna
 ('QUIZ1', 'Qual é a relação entre a síndrome de burnout e a produtividade no trabalho?', 'A síndrome de burnout aumenta a produtividade', 'A síndrome de burnout não afeta a produtividade', 'A síndrome de burnout reduz a produtividade', 'A síndrome melhora a criatividade', 'A síndrome de burnout reduz a produtividade'),
 ('QUIZ1', 'Qual é um sinal de que alguém pode estar sofrendo de síndrome de burnout?', 'Sentimento constante de realização e felicidade', 'Sentimento de exaustão e desapego do trabalho', 'Aumento de energia e disposição', 'Melhora na qualidade do sono', 'Sentimento de exaustão e desapego do trabalho');
 
+
+
+
+INSERT INTO quiz (id, nomeQuiz, idAutor, horaCriacao) 
+VALUES ('QUIZ2', 'Quiz sobre Síndrome de Burnout', 1, NOW());
+
+INSERT INTO quiz_questao (id_quiz, pergunta, alternativaA, alternativaB, alternativaC, alternativaD, resposta) VALUES
+('QUIZ2', 'Qual é um fator de risco para burnout?', 'Atividades recreativas', 'Trabalho excessivo', 'Boa alimentação', 'Desenvolvimento pessoal', 'Trabalho excessivo'),
+('QUIZ2', 'Como o burnout pode impactar o trabalho?', 'Aumenta a satisfação', 'Reduz a produtividade', 'Melhora a saúde', 'Melhora o desempenho', 'Reduz a produtividade'),
+('QUIZ2', 'Qual é uma recomendação para evitar o burnout?', 'Trabalhar mais horas', 'Fazer pausas regulares', 'Evitar férias', 'Ignorar estresse', 'Fazer pausas regulares'),
+('QUIZ2', 'O burnout pode levar a qual condição?', 'Aumento de energia', 'Depressão', 'Melhora de concentração', 'Qualidade de sono', 'Depressão'),
+('QUIZ2', 'Qual sentimento é comum em quem tem burnout?', 'Alegria constante', 'Exaustão emocional', 'Euforia', 'Satisfação total', 'Exaustão emocional'),
+('QUIZ2', 'Qual é um sintoma de burnout?', 'Aumento da criatividade', 'Cansaço extremo', 'Melhora na memória', 'Aumento de apetite', 'Cansaço extremo'),
+('QUIZ2', 'Como identificar o burnout?', 'Sentimento constante de bem-estar', 'Isolamento e apatia', 'Aumento da produtividade', 'Satisfação no trabalho', 'Isolamento e apatia'),
+('QUIZ2', 'Quem deve procurar ajuda para burnout?', 'Somente amigos', 'Psicólogo ou psiquiatra', 'Nutricionista', 'Personal trainer', 'Psicólogo ou psiquiatra'),
+('QUIZ2', 'Qual é um efeito de longo prazo do burnout?', 'Melhora nas relações sociais', 'Problemas de saúde mental', 'Aumento da satisfação', 'Aumento da produtividade', 'Problemas de saúde mental'),
+('QUIZ2', 'O burnout pode ser causado por?', 'Horas de lazer', 'Ambiente de trabalho tóxico', 'Exercícios físicos', 'Alimentação balanceada', 'Ambiente de trabalho tóxico');
+
  
  
  CREATE TABLE acerte_palavra (
