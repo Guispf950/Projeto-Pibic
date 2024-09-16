@@ -1,5 +1,5 @@
  
-CREATE DATABASE  pibic;
+CREATE DATABASE pibic;
 USE pibic;
 
 
@@ -19,93 +19,23 @@ CREATE TABLE administrador (
 	id int NOT NULL AUTO_INCREMENT,
     usuario varchar(50) NOT NULL,
     senha varchar(200) NOT NULL,
-    dicaSenha varchar(200) NOT NULL
+    dicaSenha varchar(200) NOT NULL,
+    PRIMARY KEY (id)
 );
  INSERT INTO administrador (usuario, senha, dicaSenha) VALUES ('adm1', 'adm1', 'adm1');
  
-# CREATE TABLE jogo (
-#   id char(6) NOT NULL,
-#   nomeJogo varchar(150) NOT NULL,
-#   idAutor int NOT NULL,
-#   horaCriacao timestamp NOT NULL,
-  # FOREIGN KEY (idAutor) REFERENCES administrador (id),
- #  PRIMARY KEY (id)
- #);
- 
-# CREATE TABLE quiz_questao (
-#   id INT AUTO_INCREMENT NOT NULL,
- #  idJogo char(6) NOT NULL,
- #  pergunta varchar(750) NOT NULL,
-#   alternativaA varchar(300) NOT NULL,
- #  alternativaB varchar(300) NOT NULL,
- #  alternativaC varchar(300) NOT NULL,
-  # alternativaD varchar(300) NOT NULL,
-  # resposta varchar(300) NOT NULL,
- #  PRIMARY KEY (id),
- # FOREIGN KEY (idJogo) REFERENCES jogo (id)
-# ); 
  
  
-INSERT INTO acerte_palavra (id, idAutor, nomeAcertePalavra, horaCriacao) 
-VALUES ('ID3', 1, 'Nome do Jogo', NOW());
-
-INSERT INTO acerte_palavra_questao (id_AcertePalavra, dica, palavra) 
-VALUES ('ID3', 'Dica 1', 'Palavra1'),
-       ('ID3', 'Dica 2', 'Palavra2'),
-       ('ID3', 'Dica 3', 'Palavra3'),
-       ('ID3', 'Dica 4', 'Palavra4'),
-       ('ID3', 'Dica 5', 'Palavra5'),
-       ('ID3', 'Dica 6', 'Palavra6'),
-       ('ID3', 'Dica 7', 'Palavra7'),
-       ('ID3', 'Dica 8', 'Palavra8'),
-       ('ID3', 'Dica 9', 'Palavra9'),
-       ('ID3', 'Dica 10', 'Palavra10');
- 
- 
- INSERT INTO flash_card (id, idAutor, nomeFlashCard, horaCriacao) 
-VALUES ('ID2', 1, 'Nome do Flash Card', NOW());
-
-INSERT INTO flash_card_questao (idFlashCard, frase, condicao, explicacao) 
-VALUES ('ID2', 'Frase 1', 1, 'Explicação 1'),
-       ('ID2', 'Frase 2', 0, 'Explicação 2'),
-       ('ID2', 'Frase 3', 1, 'Explicação 3'),
-       ('ID2', 'Frase 4', 0, 'Explicação 4'),
-       ('ID2', 'Frase 5', 1, 'Explicação 5'),
-       ('ID2', 'Frase 6', 0, 'Explicação 6'),
-       ('ID2', 'Frase 7', 1, 'Explicação 7'),
-       ('ID2', 'Frase 8', 0, 'Explicação 8'),
-       ('ID2', 'Frase 9', 1, 'Explicação 9'),
-       ('ID2', 'Frase 10', 0, 'Explicação 10');
- 
- 
- #LEARNQUEST
- CREATE TABLE professor (
-   id int NOT NULL AUTO_INCREMENT,
-   nome varchar(200) NOT NULL,
-   sobrenome varchar(200) NOT NULL,
-   email varchar(300) NOT NULL,
-   usuario varchar(50) NOT NULL,
-   senha varchar(200) NOT NULL,
-   dataNasc date NOT NULL,
-   nomeCachorro varchar(200) NOT NULL,
-   comidaFav varchar(200) NOT NULL,
-   PRIMARY KEY (id)
- ) ;
- 
- 
-
-   CREATE TABLE quiz (
+ CREATE TABLE  quiz (
    id char(6) NOT NULL,
    nomeQuiz varchar(150) NOT NULL,
    idAutor int NOT NULL,
    horaCriacao timestamp NOT NULL,
-   FOREIGN KEY (idAutor) REFERENCES professor (id),
-   PRIMARY KEY (id)
- );
+   PRIMARY KEY (`id`),
+   FOREIGN KEY (idAutor) REFERENCES administrador(id)
+ ) ;
  
-   
-    
-   CREATE TABLE quiz_questao (
+ CREATE TABLE quiz_questao (
   id INT AUTO_INCREMENT NOT NULL,
    id_quiz char(6) NOT NULL,
    pergunta varchar(750) NOT NULL,
@@ -117,8 +47,8 @@ VALUES ('ID2', 'Frase 1', 1, 'Explicação 1'),
    PRIMARY KEY (id),
   FOREIGN KEY (id_quiz) REFERENCES quiz (id)
  ) ;
+ 
  # criando um quiz 
-  
 INSERT INTO quiz (id, nomeQuiz, idAutor, horaCriacao) 
 VALUES ('QUIZ1', 'Quiz sobre Síndrome de Burnout', 1, NOW());
 
@@ -135,34 +65,53 @@ INSERT INTO quiz_questao (id_quiz, pergunta, alternativaA, alternativaB, alterna
 ('QUIZ1', 'Qual é um sinal de que alguém pode estar sofrendo de síndrome de burnout?', 'Sentimento constante de realização e felicidade', 'Sentimento de exaustão e desapego do trabalho', 'Aumento de energia e disposição', 'Melhora na qualidade do sono', 'Sentimento de exaustão e desapego do trabalho');
 
  
-
-
-
- CREATE TABLE agrupe_palavras (
-    id CHAR(6) NOT NULL,
-    idAutor int NOT NULL,
-	nomeAgrupePalavras varchar(200),
-    horaCriacao TIMESTAMP NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (idAutor) REFERENCES professor (id)
-);
  
-
-CREATE TABLE agrupe_palavras_questao (
+ CREATE TABLE acerte_palavra (
+   id char(6) NOT NULL,
+   idAutor int NOT NULL,
+   nomeAcertePalavra varchar(200) NOT NULL,
+   horaCriacao timestamp NOT NULL,
+   PRIMARY KEY (id),
+   FOREIGN KEY (idAutor) REFERENCES administrador(id)
+ ) ;
+ 
+  
+ CREATE TABLE acerte_palavra_questao (
     id INT AUTO_INCREMENT NOT NULL,
-    idAgrupePalavras CHAR(6) NOT NULL,
-    grupo INT NOT NULL,
-    palavra varchar(300),
-    PRIMARY KEY(id),
-    FOREIGN KEY(idAgrupePalavras) REFERENCES agrupe_palavras(id)
+    id_AcertePalavra CHAR(6) NOT NULL,
+    dica varchar(300) NOT NULL,
+    palavra varchar(200) NOT NULL,
+    PRIMARY KEY(id) ,
+    FOREIGN KEY(id_AcertePalavra) REFERENCES acerte_palavra(id)
 );
+ #criando acerte palavra 
+INSERT INTO acerte_palavra (id, idAutor, nomeAcertePalavra, horaCriacao)
+VALUES 
+('ACPL1', 1, 'Síndrome de Burnout', CURRENT_TIMESTAMP);
+
+ INSERT INTO acerte_palavra_questao (id_AcertePalavra, dica, palavra)
+VALUES 
+('ACPL1', 'Conquiz_questaodição causada pelo excesso de trabalho', 'Estresse'),
+('ACPL1', 'Sensação de exaustão física e emocional', 'Fadiga'),
+('ACPL1', 'Falta de energia e motivação', 'Apatia'),
+('ACPL1', 'Sentimento de fracasso e incompetência', 'Desânimo'),
+('ACPL1', 'Desejo de se isolar socialmente', 'Solidão'),
+('ACPL1', 'Dificuldade para relaxar', 'Tensão'),
+('ACPL1', 'Sensação de ser incapaz de lidar com tarefas', 'Ansiedade'),
+('ACPL1', 'Perda de interesse no trabalho', 'Desgosto'),
+('ACPL1', 'Sentimento de que o esforço não vale a pena', 'Desespero'),
+('ACPL1', 'Pensamento constante sobre trabalho', 'Obsessão');
+
+ 
+ 
+ 
 CREATE TABLE flash_card (
     id char(6) NOT NULL,
     idAutor int NOT NULL,
     nomeFlashCard varchar(200) NOT NULL,
     horaCriacao TIMESTAMP NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (idAutor) REFERENCES professor (id)
+   FOREIGN KEY (idAutor) REFERENCES administrador(id)
 );
  
 CREATE TABLE flash_card_questao (
@@ -191,203 +140,4 @@ INSERT INTO flash_card_questao (idFlashCard, frase, condicao, explicacao) VALUES
 ('FLASH1', 'Sintomas de Burnout podem incluir sentimentos de desesperança e pessimismo.', 1, 'Além da exaustão física e emocional, sentimentos de desesperança e pessimismo são comuns em indivíduos com burnout.'),
 ('FLASH1', 'Burnout afeta apenas pessoas em profissões de alta pressão, como médicos e advogados.', 0, 'Burnout pode afetar qualquer pessoa, independentemente da profissão, se estiverem sob constante estresse e pressão no trabalho.');
 
- CREATE TABLE acerte_palavra (
-    id CHAR(6) NOT NULL,
-    idAutor int NOT NULL,
-    nomeAcertePalavra varchar(200) NOT NULL,
-    horaCriacao TIMESTAMP NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (idAutor) REFERENCES professor (id)
-);
- 
- 
- CREATE TABLE acerte_palavra_questao (
-    id INT AUTO_INCREMENT NOT NULL,
-    id_AcertePalavra CHAR(6) NOT NULL,
-    dica varchar(300) NOT NULL,
-    palavra varchar(200) NOT NULL,
-    PRIMARY KEY(id) ,
-    FOREIGN KEY(id_AcertePalavra) REFERENCES acerte_palavra(id)
-);
- #criando acerte palavra
- 
-INSERT INTO acerte_palavra (id, idAutor, nomeAcertePalavra, horaCriacao)
-VALUES 
-('ACPL1', 1, 'Síndrome de Burnout', CURRENT_TIMESTAMP);
 
- INSERT INTO acerte_palavra_questao (id_AcertePalavra, dica, palavra)
-VALUES 
-('ACPL1', 'Conquiz_questaodição causada pelo excesso de trabalho', 'Estresse'),
-('ACPL1', 'Sensação de exaustão física e emocional', 'Fadiga'),
-('ACPL1', 'Falta de energia e motivação', 'Apatia'),
-('ACPL1', 'Sentimento de fracasso e incompetência', 'Desânimo'),
-('ACPL1', 'Desejo de se isolar socialmente', 'Solidão'),
-('ACPL1', 'Dificuldade para relaxar', 'Tensão'),
-('ACPL1', 'Sensação de ser incapaz de lidar com tarefas', 'Ansiedade'),
-('ACPL1', 'Perda de interesse no trabalho', 'Desgosto'),
-('ACPL1', 'Sentimento de que o esforço não vale a pena', 'Desespero'),
-('ACPL1', 'Pensamento constante sobre trabalho', 'Obsessão');
-
- 
-   
- 
-CREATE TABLE pontuacao (
-    id INT AUTO_INCREMENT NOT NULL,
-    idAluno INT NOT NULL,
-    tempoInicial TIMESTAMP NOT NULL,
-    tempoFinal TIMESTAMP NOT NULL,
-    acertos INT NOT NULL,
-    id_quiz CHAR(6) NOT NULL,
-    id_flash_card CHAR(6) NOT NULL,
-    id_acerte_palavra CHAR(6) NOT NULL,
-    id_agrupe_palavras CHAR(6) NOT NULL,
-    vezesJogadas INT NOT NULL,
-    PRIMARY KEY (id),
-   FOREIGN KEY (idAluno) REFERENCES usuario(id),
-   FOREIGN KEY ( id_flash_card) REFERENCES flash_card(id),
-   FOREIGN KEY (id_acerte_palavra) REFERENCES acerte_palavra(id),
-   FOREIGN KEY (id_quiz) REFERENCES quiz(id),
-   FOREIGN KEY (id_agrupe_palavras) REFERENCES agrupe_palavras(id)
-    
-);
-    
-
-
-
-
-
-
-
-
-
-
-#STORED PROCEDURES
-    DELIMITER $ 
-    CREATE PROCEDURE pegarIdProfessor(IN nomeUser varchar(100), OUT idProfessor int)
-	BEGIN
-		SET idprofessor = (SELECT id FROM professor WHERE usuario = nomeUser);
-    END $
-    DELIMITER ;
-    
-     DELIMITER $ 
-    CREATE PROCEDURE pegarIdAluno(IN nomeUser varchar(100), OUT idAluno int)
-	BEGIN
-		SET idAluno = (SELECT id FROM aluno WHERE usuario = nomeUser);
-	END $
-    DELIMITER ;
-    
-    # TESTE DE STORED PROCEDURE pegarIdProfessor e pegarIdAluno
-    call pegarIdProfessor("teste1", @idProfessor);
-    SELECT @idProfessor;
-    
-    CALL pegarIdAluno("FOI MLK", @idAluno);
-    SELECT @idAluno;
-    
-    
-#FIM DE STORED PROCEDURES
-  
-#TRIGGER'S
- DELIMITER $
-	CREATE TRIGGER tr_excluirAcertePalavra BEFORE DELETE ON acerte_palavra
-	FOR EACH ROW
-    BEGIN 
-		DELETE FROM acerte_palavra_questoes WHERE id_AcertePalavra = OLD.id;
-    END $
-	DELIMITER ;
-    
-    DELIMITER $
-	CREATE TRIGGER tr_excluirFlashCard BEFORE DELETE ON flash_card 
-	FOR EACH ROW
-    BEGIN 
-		DELETE FROM flash_card_questao WHERE idFlashCard = OLD.id;
-    END $
-	DELIMITER ;
-    
-	DELIMITER $
-	CREATE TRIGGER tr_excluirQuiz BEFORE DELETE ON quiz 
-	FOR EACH ROW
-    BEGIN 
-		DELETE FROM quiz_questao WHERE id_quiz = OLD.id;
-    END $
-	DELIMITER ;
-    
-     
-#FIM TRIGGER'S
-  
-#TESTE DE TRIGGERS
-	DELETE FROM quiz WHERE id = '0C139';
-    DELETE FROM flash_card WHERE id = '66735';
-    DELETE FROM acerte_palavra WHERE id = '71B1B';
-
-
-
-#ALGUMAS CONSULTAS/UPDATES/DELETES/INSERTS USADOS NO SISTEMA
-
-	INSERT INTO frase (idFlashCard, frase, condicao, explicacao) VALUES ('33F42', 'testando', 1, 'teste');
-	INSERT INTO aluno (nome, sobrenome, email, usuario, senha, dataNasc, nomeCachorro, comidaFav) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
-	SELECT id FROM aluno WHERE usuario = (?);
-	SELECT id FROM aluno WHERE email = (?);
-	SELECT id FROM professor WHERE usuario = (?);
-	SELECT id FROM professor WHERE email = (?); #Cadastro de Aluno, com uma verificação pra consultar se aquele nome de usuario ou email ja existe na tabela ALUNO e PROFESSOR no Banco de Dados (Com professor o cadastro é a mesma coisa)
-   
-	SELECT email FROM aluno WHERE nome = ? AND sobrenome = ? AND dataNasc = ? AND comidaFav = ? AND email = ? ;
-	UPDATE aluno SET senha = (?) WHERE email = (?); #Restaura senha caso o email esteja correto
-   
-	SELECT usuario FROM aluno WHERE usuario = 'Aluno1' || email = 'Aluno1' && senha = 'Aluno1';
-	SELECT usuario FROM professor WHERE usuario = 'professor1@gmail.com' || email = 'professor1@gmail.com' && senha = 'Professor1'; #Caso uma das consultas esteja certa, faz o login 
-   
-	SELECT id FROM professor WHERE usuario = (?); # Pega id com o nome de usuario do professor
-   
- 
-	INSERT INTO quiz_questao (id, id_quiz, pergunta, alternativaA, alternativaB, alternativaC, alternativaD, resposta) VALUES (?, ?, ?, ?, ?, ?, ?, ?); #Insere Questao no banco
-   
-	 
-	SELECT * FROM quiz_questao WHERE id_quiz = (?);
-	SELECT * FROM quiz WHERE id = (?) ; #Consulta todas as questoes de um quiz e armazena em uma lista, a busca é feita com id do quiz
-   
- 
-	SELECT * FROM quiz_questao WHERE id = (?);  #Consulta uma questao por id da questao
-   
-    
-    UPDATE quiz_questao SET pergunta = (?) , alternativaA = (?), alternativaB = (?), alternativaC = (?) , alternativaD = (?), resposta = (?) WHERE id = (?); #Altera questao
-   SELECT * FROM quiz_questao WHERE id_quiz = 'B7323' LIMIT 1 OFFSET 0;
-     
-    DELETE FROM quiz_questao WHERE id = (?); #exclui questao
-   
-    
-    SELECT id FROM quiz_questao ORDER BY id DESC LIMIT 1; #Pega o ultimo id de uma questao cadastrada
-   
-   
-    SELECT COUNT(*) as total FROM questao WHERE id_quiz = ?;  #Mostra o total de questao do quiz
-	SELECT pergunta, alternativaA, alternativaB, alternativaC, alternativaD FROM questao WHERE id_quiz = ? LIMIT 1 OFFSET ?;  # Pula questoes e consulta uma questao especifica do quiz
-   
-    
-    INSERT INTO quiz (id, nomeQuiz, tempoQuiz, idAutor, horaCriacao) VALUES (?,?,?,?,?); #Insere informações no quiz/cria quiz
-   
-   
-   
-	SELECT nomeQuiz, tempoQuiz FROM quiz WHERE id = (?);  #Consulta nome do quiz e tempo quiz do quiz
-   
-		
-    SELECT * FROM quiz where id = (?); #Consulta tudo de um quiz com seu id
-   
-   
-    UPDATE quiz SET nomeQuiz = (?) , tempoQuiz = (?) WHERE id = (?);  #Altera os dados de um quiz com o id do quiz
-   
-   
-    DELETE FROM quiz WHERE id = (?);  #Deleta um quiz com seu id
-   
-     
-    SELECT id FROM quiz ORDER BY horaCriacao DESC LIMIT 1; #Pega ultimo id de quiz cadastrado
-   
-   
-   
-    SELECT resposta FROM questao WHERE id_quiz = ? LIMIT ? OFFSET ?;  #Consulta uma resposta especifica do quiz, usado para verificar se a resposta do usuario está correta
-
-	 
-	SELECT id FROM aluno WHERE usuario = (?);
-	INSERT INTO pontuacao (idQuiz, idAluno, tempoInicial, tempoFinal, acertos) VALUES (?, ?, ?, ?, ?); #Consulta o id do aluno pelo seu nome de usuario, e usa esse id na inserção de dados na tabela pontuação
-    
-    INSERT INTO pontuacao (id_jogo, idAluno, tempoInicial, tempoFinal, acertos, vezesJogadas) VALUES (?, ?, ?, ?, ?, ?); # ao final de qualquer jogo é criado um novo registro na tabela pontuacao
-    
-    SELECT * FROM pontuacao p1 WHERE p1.tempoFinal = (SELECT MAX(p2.tempoFinal) FROM pontuacao p2 WHERE p2.idAluno = p1.idAluno AND p2.id_jogo = '8AC1B'); #usado para consultar o registro mais recente de cada jogador que finalizou o jogo
